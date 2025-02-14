@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useCallback } from "react";
-// import { Sidebar } from "../Sidebar/sidebar";
 import { NavSideItems } from "./NavSideItems";
 import { MenuList } from "../Sidebar/MenuListRoutes";
 import { usePathname } from "next/navigation";
@@ -9,9 +8,6 @@ import { usePathname } from "next/navigation";
 const MainSidebar = () => {
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set());
   const pathname = usePathname();
-  // const [isSideBarOpen, setSideBarOpen] = useState<boolean>(true);
-  // const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
-
   const handleToggleExpand = useCallback((itemId: string) => {
     setExpandedItems((prev) => {
       const next = new Set(prev);
@@ -21,10 +17,8 @@ const MainSidebar = () => {
     });
   }, []);
 
-  // const memoizedMenuList = useMemo(() => MenuList, []);
-
   return (
-    <nav className="space-y-4">
+    <nav className="space-y-1">
       <NavSideItems
         menuItems={MenuList}
         expandedItems={expandedItems}
@@ -32,13 +26,7 @@ const MainSidebar = () => {
         onItemSelect={() => {}}
         onToggleExpand={handleToggleExpand}
       />
-      {/* <Sidebar
-        isSideBarOpen={isSideBarOpen || isMobileMenuOpen}
-        setSideBarOpen={setSideBarOpen}
-        onClose={() => setIsMobileMenuOpen(false)}
-      >
-       
-      </Sidebar> */}
+    
     </nav>
   );
 };

@@ -40,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
           <Link href="/" className="flex-shrink-0">
             <img
               className="h-8 w-auto"
-              src="https://redefinecommerce.blob.core.windows.net/lanomedia/1/themeconfiguration/0.8681965048068074/HeaderLogoUrl_2.png"
+              src="/headerLogo.png"
               alt="Company Logo"
             />
           </Link>

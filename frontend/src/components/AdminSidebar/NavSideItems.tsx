@@ -1,3 +1,5 @@
+"use client";
+
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"; // Import necessary icons
 
 import Link from "next/link";
-import { MenuItem } from "../../types/sidebar/NavItem/sidebar.types";
+import { MenuItem } from "@/types/sidebar/NavItem/sidebar.types";
 
 interface NavSideItemsProps {
   menuItems: MenuItem[];
@@ -30,25 +32,26 @@ export const NavSideItems: React.FC<NavSideItemsProps> = ({
       {menuItems.map((item) => {
         const isExpanded = expandedItems.has(item.id);
         const isSelected = selectedItem === (item.href || "");
+        const hasSubItems = item.subItems && item.subItems.length > 0;
         
         return (
           <li key={item.id}>
             <Link
               href={item.href || "#"}
               onClick={(e) => {
-                if (item.subItems) {
+                if (hasSubItems) {
                   e.preventDefault();
                   onToggleExpand(item.id);
                 }
                 onItemSelect(item.id);
               }}
               className={`
-                flex items-center justify-between px-3 py-2 text-sm rounded-md
+                flex items-center justify-between px-3 py-2 text-sm
                 transition-colors duration-150 ease-in-out
                 ${isSelected 
-                  ? "bg-gray-800 text-blue-400" 
-                  : "text-gray-300 hover:bg-gray-800"}
-                ${level > 0 ? "ml-4" : ""}
+                  ? "text-blue-400" 
+                  : "text-gray-300 hover:text-blue-400"}
+                ${level > 0 ? "pl-10" : ""}
               `}
             >
               <span className="flex items-center gap-3">
@@ -62,7 +65,7 @@ export const NavSideItems: React.FC<NavSideItemsProps> = ({
                 {item.label}
               </span>
 
-              {item.subItems && (
+              {hasSubItems && (
                 <FontAwesomeIcon
                   icon={isExpanded ? faAngleUp : faAngleDown}
                   size="sm"
@@ -71,10 +74,10 @@ export const NavSideItems: React.FC<NavSideItemsProps> = ({
               )}
             </Link>
 
-            {item.subItems && isExpanded && (
+            {hasSubItems && isExpanded && (
               <div className="mt-1">
                 <NavSideItems
-                  menuItems={item.subItems}
+                  menuItems={item.subItems ?? []}
                   expandedItems={expandedItems}
                   selectedItem={selectedItem}
                   onItemSelect={onItemSelect}
