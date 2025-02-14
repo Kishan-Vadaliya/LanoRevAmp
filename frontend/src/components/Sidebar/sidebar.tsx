@@ -1,60 +1,38 @@
-"use client";
-import SidebarDropdown from "../Dropdown/dropdown";
 import React from "react";
-import NavItem from "../Navbar/navbar";
-import {
-  LayoutDashboard,
-  ShoppingCart,
-  Folder,
-  ClipboardList,
-  Tag,
-  FileText,
-  Settings,
-  Users,
-} from "lucide-react";
 
-const Sidebar = () => {
+interface SidebarProps {
+  children: React.ReactNode;
+  isSideBarOpen: boolean;
+  setSideBarOpen: (isOpen: boolean) => void;
+}
+
+export const Sidebar: React.FC<SidebarProps> = ({
+  children,
+  isSideBarOpen,
+  setSideBarOpen,
+}) => {
   return (
-    <div className="fixed left-0 top-0 w-80 h-screen bg-gray-100 p-4 shadow-lg overflow-y-auto">
-      <nav className="space-y-2">
-        <NavItem icon={<LayoutDashboard size={18} />} label="Dashboard" />
-        <NavItem
-          icon={<ShoppingCart size={18} />}
-          label="Master Product Feed"
+    <>
+      {/* Mobile overlay */}
+      {isSideBarOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
+          onClick={() => setSideBarOpen(false)}
         />
-        <SidebarDropdown
-          icon={<Folder size={18} />}
-          label="Stores"
-          items={["Store 1", "Store 2"]}
-        />
-        <SidebarDropdown
-          icon={<ClipboardList size={18} />}
-          label="Content Management"
-          items={["Pages", "Media"]}
-        />
-        <NavItem icon={<Tag size={18} />} label="Orders" />
-        <SidebarDropdown
-          icon={<Users size={18} />}
-          label="Customer"
-          items={["Profiles", "Segments"]}
-        />
-        <NavItem icon={<Tag size={18} />} label="Promotions" />
-        <SidebarDropdown
-          icon={<Settings size={18} />}
-          label="Settings"
-          items={[
-            "Dashboard",
-            "Profile",
-            "Roles",
-            "Users",
-            "System Log",
-            "Account Activity",
-          ]}
-        />
-        <NavItem icon={<FileText size={18} />} label="Reports" />
-      </nav>
-    </div>
+      )}
+
+      {/* Sidebar */}
+      <aside
+        className={`fixed lg:static inset-y-0 left-0 z-30 w-64 transform 
+          ${isSideBarOpen ? "translate-x-0" : "-translate-x-full"}
+          lg:translate-x-0 transition-transform duration-200 ease-in-out
+          bg-[#1a1c23] border-r border-gray-700
+          overflow-y-auto`}
+      >
+        <div className="p-4 pt-20 lg:pt-4">
+          {children}
+        </div>
+      </aside>
+    </>
   );
 };
-
-export default Sidebar;
