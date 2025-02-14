@@ -23,11 +23,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
       {/* Sidebar */}
       <aside
-        className={`fixed lg:static inset-y-0 left-0 z-30 w-64 transform 
-          ${isSideBarOpen ? "translate-x-0" : "-translate-x-full"}
-          lg:translate-x-0 transition-transform duration-200 ease-in-out
-          bg-[#1a1c23] border-r border-gray-700
-          overflow-y-auto`}
+        className={`app-container h-[calc(100vh-4rem)] sticky top-16 bottom-0 bg-opacity-30 z-40 lg:z-auto  ${isSideBarOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <div className="p-4 pt-20 lg:pt-4">
           {children}

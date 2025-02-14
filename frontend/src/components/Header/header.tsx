@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   }, []);
 
   return (
-    <header className="fixed top-0 bg-[#1a1c23] border-b border-gray-700 w-full shadow-md z-40">
+    <header className="fixed top-0 bg-[#FFFFFF] border-b border-light-700 w-full shadow-md z-40">    
       <div className="px-4 md:px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-4">
           {/* Menu button - only show on mobile */}
@@ -57,11 +57,11 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
         <div className="flex items-center">
           <div className="relative" ref={dropdownRef}>
             <button
-              className="inline-flex items-center gap-2 p-2 hover:bg-gray-800 rounded-md text-gray-200"
+              className="inline-flex items-center gap-2 p-2 rounded-md text-black-200"
               onClick={() => setIsOpen(!isOpen)}
             >
               <span className="hidden md:block text-sm font-medium truncate max-w-[150px]">
-                Kishan V
+              Dhrumisha Rakholiya
               </span>
               <div className="h-8 w-8 rounded-full overflow-hidden flex-shrink-0 bg-gray-700 flex items-center justify-center">
                 <svg className="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,33 +75,33 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
 
             {/* Dropdown Menu */}
             {isOpen && (
-              <div className="absolute right-0 mt-2 w-64 bg-[#1a1c23] border border-gray-700 rounded-md shadow-lg py-1">
-                <div className="px-4 py-2 border-b border-gray-700">
-                  <p className="text-sm font-medium text-gray-200">Kishan V</p>
+              <div className="absolute right-0 mt-2 w-64 bg-[#FFFFFf] border border-light-300 rounded-md shadow-lg py-1">
+                <div className="px-4 py-2 border-b border-light-300">
+                  <p className="text-sm font-medium text-black-200">Dhrumisha</p>
                   <p className="text-xs text-gray-400">Super Admin</p>
                 </div>
                 <nav className="py-1">
                   <Link
                     href="/admin/settings/profile"
-                    className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800"
+                    className="block px-4 py-2 text-sm text-black-200 hover:bg-gray-800"
                   >
                     Profile
                   </Link>
                   <Link
                     href="/admin/settings/users"
-                    className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800"
+                    className="block px-4 py-2 text-sm text-black-200 hover:bg-gray-800"
                   >
                     Users
                   </Link>
                   <Link
                     href="/admin/settings/system-log"
-                    className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800"
+                    className="block px-4 py-2 text-sm text-black-200 hover:bg-gray-800"
                   >
                     System Logs
                   </Link>
                   <button
                     onClick={() => alert("Signing out...")}
-                    className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 border-t border-gray-700"
+                    className="block w-full text-left px-4 py-2 text-sm text-black-200 hover:bg-gray-800 border-t border-light-300"
                   >
                     Sign Out
                   </button>

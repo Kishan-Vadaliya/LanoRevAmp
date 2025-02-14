@@ -46,16 +46,16 @@ export const NavSideItems: React.FC<NavSideItemsProps> = ({
                 flex items-center justify-between px-3 py-2 text-sm rounded-md
                 transition-colors duration-150 ease-in-out
                 ${isSelected 
-                  ? "bg-gray-800 text-blue-400" 
-                  : "text-gray-300 hover:bg-gray-800"}
-                ${level > 0 ? "ml-4" : ""}
+                  ? "text-light-400" 
+                  : "text-black-300"}
+                ${level > 0 ? "pl-10" : ""}
               `}
             >
               <span className="flex items-center gap-3">
                 {item.icon && (
                   <FontAwesomeIcon
                     icon={item.icon as IconProp}
-                    className={isSelected ? "text-blue-400" : "text-gray-400"}
+                    className={isSelected ? "text-blue-400" : "text-black-300"}
                     size="sm"
                   />
                 )}

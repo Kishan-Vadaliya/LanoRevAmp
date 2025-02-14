@@ -13,19 +13,16 @@ export default function LayoutWrapper({ children }: LayoutWrapperProps) {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex h-screen overflow-hidden">
       <Header onMenuClick={() => setSidebarOpen(!isSidebarOpen)} />
-      <div className="flex flex-1 overflow-hidden pt-16">
-        <Sidebar 
-          isSideBarOpen={isSidebarOpen} 
-          setSideBarOpen={setSidebarOpen}
-        >
-          <MainSidebar />
-        </Sidebar>
-        <main className="flex-1 overflow-auto bg-gray-50 dark:bg-gray-900">
-          {children}
-        </main>
+      <div className="app-sidebar mr-1 min-w-[300px] fixed !-left-96  lg:static bg-slate-100 border-r border-neutral-200 z-60 left-0 h-full lg:left-auto scrollbar-thin scrollbar-thumb-slate-400 scrollbar-track-slate-200">
+      <Sidebar isSideBarOpen={isSidebarOpen} setSideBarOpen={setSidebarOpen}>
+        <MainSidebar />
+      </Sidebar>
+      </div>
+      <div className="relative w-full max-h-[calc(100%-4rem)] flex flex-col flex-1 overflow-x-hidden overflow-y-scroll scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-300 top-16">
+        <main>{children}</main>
       </div>
     </div>
   );
-} 
+}
