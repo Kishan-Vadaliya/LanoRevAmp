@@ -1,19 +1,21 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { Sidebar } from "../Sidebar/sidebar";
+// import { Sidebar } from "../Sidebar/sidebar";
 import { NavSideItems } from "./NavSideItems";
 import { MenuList } from "../Sidebar/MenuListRoutes";
+import { usePathname } from "next/navigation";
 
 const MainSidebar = () => {
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set());
-  const [selectedItem, setSelectedItem] = useState<string>("");
-  const [isSideBarOpen, setSideBarOpen] = useState<boolean>(true);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const pathname = usePathname();
+  // const [isSideBarOpen, setSideBarOpen] = useState<boolean>(true);
+  // const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   const handleToggleExpand = useCallback((itemId: string) => {
     setExpandedItems((prev) => {
       const next = new Set(prev);
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       next.has(itemId) ? next.delete(itemId) : next.add(itemId);
       return next;
     });
@@ -22,26 +24,22 @@ const MainSidebar = () => {
   // const memoizedMenuList = useMemo(() => MenuList, []);
 
   return (
-    <>
-      <button
-        className="lg:hidden fixed top-4 left-4 z-50"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+    <nav className="space-y-4">
+      <NavSideItems
+        menuItems={MenuList}
+        expandedItems={expandedItems}
+        selectedItem={pathname}
+        onItemSelect={() => {}}
+        onToggleExpand={handleToggleExpand}
       />
-       <NavSideItems
-          menuItems={MenuList}
-          expandedItems={expandedItems}
-          selectedItem={selectedItem}
-          onItemSelect={setSelectedItem}
-          onToggleExpand={handleToggleExpand}
-        />
-      <Sidebar
+      {/* <Sidebar
         isSideBarOpen={isSideBarOpen || isMobileMenuOpen}
         setSideBarOpen={setSideBarOpen}
         onClose={() => setIsMobileMenuOpen(false)}
       >
        
-      </Sidebar>
-    </>
+      </Sidebar> */}
+    </nav>
   );
 };
 
