@@ -1,45 +1,60 @@
 // All Static Routes are defined here.
 export const PageRoutes = {
-  DASHBOARD: "admin/dashboard",
+  DASHBOARD: "/admin/dashboard",
   MASTER_PRODUCT_FEED: {
     DASHBOARD: "/admin/master-product-feed/dashboard",
     CORE_PRODUCT_FEED: "/admin/master-product-feed/core-product-feed",
     GIFT_CARD: "/admin/master-product-feed/gift-card",
     PRODUCT_INVENTORY: "/admin/master-product-feed/product-inventory",
-    SETTINGS: "/admin/master-product-feed/settings",
-    CONFIGURATION: "/admin/master-product-feed/configuration",
+    SETTINGS: {
+      CLEAR_CACHE: "/admin/master-product-feed/settings/clear-cache",
+    },
+    CONFIGURATION: {
+      VENDORS: "/admin/master-product-feed/configuration/vendors",
+      BRAND_MASTER: "/admin/master-product-feed/configuration/brand-master",
+      PRODUCT_CATEGORIES:
+        "/admin/master-product-feed/configuration/product-categories",
+      PRODUCT_CONFIGURATOR:
+        "/admin/master-product-feed/configuration/product-configurator",
+      CATEGORIES_CONFIGURATOR:
+        "/admin/master-product-feed/configuration/categories-configurator",
+      PRODUCT_CUSTOM: "/admin/master-product-feed/configuration/product-custom",
+      PRODUCT_ATTRIBUTES:
+        "/admin/master-product-feed/configuration/product-attributes",
+      PRODUCT_READINESS:
+        "/admin/master-product-feed/configuration/product-readiness",
+      SEO_READINESS: "/admin/master-product-feed/configuration/seo-readiness",
+      QUANTITY_DISCOUNT:
+        "/admin/master-product-feed/configuration/quantity-discount",
+      PRODUCT_TAGS: "/admin/master-product-feed/configuration/product-tags",
+      SHIPPING_CARRIERS:
+        "/admin/master-product-feed/configuration/shipping-carriers",
+      SHIPPING_METHODS:
+        "/admin/master-product-feed/configuration/shipping-methods",
+      SHIPPING_COST: "/admin/master-product-feed/configuration/shipping-cost",
+      PAYMENT_TYPES: "/admin/master-product-feed/configuration/payment-types",
+      FIX_CHARGES: "/admin/master-product-feed/configuration/fix-charges",
+      PRODUCT_DIMENSION:
+        "/admin/master-product-feed/configuration/product-dimension",
+      PAGE_REDIRECT: "/admin/master-product-feed/configuration/page-redirect",
+      PRODUCT_TIERS: "/admin/master-product-feed/configuration/product-tiers",
+      EMAIL_AUTORESPONDER:
+        "/admin/master-product-feed/configuration/email-autoresponder",
+      WAREHOUSE: "/admin/master-product-feed/configuration/warehouse",
+    },
   },
-  MASTER_CONFIGURATOR: {
-    VENDOR_CONFIGURATOR: "/admin/master-configurator/vendor-configurator",
-    BRAND_MASTER_CONFIGURATOR:
-      "/admin/master-configurator/brand-master-configurator",
-    PRODUCT_CATEGORY_CONFIGURATOR:
-      "/admin/master-configurator/product-category-configurator",
-    CATEGORY_CONFIGURATOR: "/admin/master-configurator/category-configurator",
-    PRODUCT_CUSTOM_CONFIGURATOR:
-      "/admin/master-configurator/product-custom-configurator",
-    PRODUCT_ATTRIBUTE_CONFIGURATOR:
-      "/admin/master-configurator/product-attribute-configurator",
-    PRODUCT_READINESS_CONFIGURATOR:
-      "/admin/master-configurator/product-readiness-configurator",
-    SEO_READINESS_CONFIGURATOR:
-      "/admin/master-configurator/seo-readiness-configurator",
-    QUALITY_DISCOUNT_CONFIGURATOR:
-      "/admin/master-configurator/quality-discount-configurator",
-  },
-  MASTER_SETTINGS: {
-    CLEAR_CACHE: "/admin/master-product-feed/settings/clear-cache",
-  },
-  STORES_LANO: {
-    DASHBOARD: "/admin/stores/lano/dashboard",
-    PRODUCT: "/admin/stores/lano/product",
-    CATEGORY_MASTER: "/admin/stores/lano/category-master",
-    CATEGORY_ORDER: "/admin/stores/lano/category-order",
-    PRODUCT_ORDER: "/admin/stores/lano/product-order",
-    BRAND_MASTER: "/admin/stores/lano/brand-master",
-    PROMOTIONS: "/admin/stores/lano/promotions",
-    CAREER_PAGE_FORMS: "/admin/stores/lano/career-page-forms",
-    VENDOR_MAPPING: "/admin/stores/lano/vendor-mapping",
+  STORES: {
+    LANO: {
+      DASHBOARD: "/admin/stores/lano/dashboard",
+      PRODUCT: "/admin/stores/lano/product",
+      CATEGORY_MASTER: "/admin/stores/lano/category-master",
+      CATEGORY_ORDER: "/admin/stores/lano/category-order",
+      PRODUCT_ORDER: "/admin/stores/lano/product-order",
+      BRAND_MASTER: "/admin/stores/lano/brand-master",
+      PROMOTION: "/admin/stores/lano/promotion",
+      CAREER_PAGE_FORMS: "/admin/stores/lano/career-page-forms",
+      VENDOR_MAPPING: "/admin/stores/lano/vendor-mapping",
+    },
   },
   CONTENT_MANAGEMENT: {
     DASHBOARD: "/admin/content-management/dashboard",
@@ -55,31 +70,36 @@ export const PageRoutes = {
   },
   CUSTOMER: {
     DASHBOARD: "/admin/customer/dashboard",
+    CUSTOMERS: "/admin/customer/customers",
     CUSTOMER_REVIEW: "/admin/customer/customer-review",
     CUSTOMER_GIFT_CARD: "/admin/customer/customer-gift-card",
-    CUSTOMER_REQUEST_QUOTE: "/admin/customer/customer-request-quote",
+    TESTIMONIAL: "/admin/customer/testimonial",
+    NEWSLETTER_ARCHIVE: "/admin/customer/newsletter-archive",
+    ABANDONED_CART: "/admin/customer/abandoned-shopping-cart",
+    REQUEST_QUOTE: "/admin/customer/request-a-quote",
+    DEALS_REQUEST_QUOTE: "/admin/customer/deals-request-quote-section",
   },
   PROMOTIONS: {
-    COUPON_CODE: "/admin/promotions/coupon-code",
+    COUPON_CODES: "/admin/promotions/coupon-codes",
   },
   SETTINGS: {
     DASHBOARD: "/admin/settings/dashboard",
     PROFILE: "/admin/settings/profile",
     ROLES: "/admin/settings/roles",
+    USERS: "/admin/settings/users",
     SYSTEM_LOG: "/admin/settings/system-log",
     ACCOUNT_ACTIVITY: "/admin/settings/account-activity",
-    USERS: "/admin/settings/users",
   },
   CONFIGURATOR: {
-    STORE_CONFIGURATOR: "/admin/configurator/store-configurator",
-    THEME_CONFIGURATOR: "/admin/configurator/theme-configurator",
-    COMPANY_CONFIGURATOR: "/admin/configurator/company-configurator",
-    SEO_CONFIGURATOR: "/admin/configurator/seo-configurator",
-    MODULE_CONFIGURATOR: "/admin/configurator/module-configurator",
-    THIRD_PARTY_CONFIGURATOR: "/admin/configurator/third-party-configurator",
-    WIDGET_CONFIGURATOR: "/admin/configurator/widget-configurator",
+    STORE_CONFIGURATION: "/admin/configurator/store-configuration",
+    THEME_CONFIGURATION: "/admin/configurator/theme-configuration",
+    COMPANY_CONFIGURATION: "/admin/configurator/company-configuration",
+    SEO_CONFIGURATION: "/admin/configurator/seo-configuration",
+    MODULES: "/admin/configurator/modules",
+    THIRD_PARTY_SERVICES: "/admin/configurator/third-party-services",
+    WIDGET_MODULE_MAPPING: "/admin/configurator/widget-module-mapping",
   },
   REPORTS: {
-    DASHBOARD: "/admin/reports/",
+    DASHBOARD: "/admin/reports",
   },
 };
