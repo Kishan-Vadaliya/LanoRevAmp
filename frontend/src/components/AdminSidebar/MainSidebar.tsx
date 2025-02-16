@@ -12,7 +12,11 @@ const MainSidebar = () => {
   const handleToggleExpand = useCallback((itemId: string) => {
     setExpandedItems((prev) => {
       const next = new Set(prev);
-      next.has(itemId) ? next.delete(itemId) : next.add(itemId);
+      if (next.has(itemId)) {
+        next.delete(itemId);
+      } else {
+        next.add(itemId);
+      }
       return next;
     });
   }, []);

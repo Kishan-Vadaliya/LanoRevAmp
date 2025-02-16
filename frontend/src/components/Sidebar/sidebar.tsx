@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { MenuList } from './MenuListRoutes';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { usePathname } from 'next/navigation';
 
 const Sidebar = () => {
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const pathname = usePathname();
 
   return (
     <aside className="h-full bg-[#1E1E1E] text-white w-full">
@@ -15,7 +17,9 @@ const Sidebar = () => {
               {item.href ? (
                 <Link
                   href={item.href}
-                  className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700"
+                  className={`flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 ${
+                    pathname === item.href ? 'bg-gray-700' : ''
+                  }`}
                 >
                   {item.icon && (
                     <span className="w-5 h-5 mr-3">

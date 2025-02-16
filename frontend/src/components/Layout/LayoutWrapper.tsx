@@ -29,36 +29,42 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
   }, []);
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="min-h-screen bg-[#121212]">
       <Header onMenuClick={() => setSidebarOpen(!isSidebarOpen)} />
-      <div className={`
-        fixed top-16 left-0 h-[calc(100vh-4rem)] 
-        transition-all duration-300 ease-in-out
-        lg:static lg:h-full
-        ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:-translate-x-0'}
-        z-30
-      `}>
-        <div className="w-[300px] h-full">
-          <Sidebar />
+      
+      <div className="flex pt-16"> {/* Add padding-top to account for header height */}
+        {/* Sidebar */}
+        <div className={`
+          fixed left-0 h-[calc(100vh-4rem)] 
+          transition-all duration-300 ease-in-out
+          lg:static lg:h-[calc(100vh-4rem)]
+          ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+          z-30
+        `}>
+          <div className="w-[300px] h-full">
+            <Sidebar />
+          </div>
         </div>
+
+        {/* Main Content */}
+        <div className={`
+          flex-1
+          transition-all duration-300 ease-in-out
+          ${isSidebarOpen ? 'lg:ml-[300px]' : 'lg:ml-0'}
+        `}>
+          <main className="h-[calc(100vh-4rem)] overflow-auto">
+            {children}
+          </main>
+        </div>
+
+        {/* Mobile Overlay */}
+        {isSidebarOpen && (
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
       </div>
-      <div className={`
-        relative flex-1 overflow-x-hidden overflow-y-auto
-        transition-all duration-300 ease-in-out
-        pt-16
-        ${isSidebarOpen ? 'lg:ml-[300px]' : 'lg:ml-0'}
-      `}>
-        <main className="min-h-screen">
-          {children}
-        </main>
-      </div>
-      {/* Overlay for mobile */}
-      {isSidebarOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
     </div>
   );
 };

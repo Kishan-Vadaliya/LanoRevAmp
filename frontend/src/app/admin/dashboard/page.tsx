@@ -1,9 +1,9 @@
-import React from 'react'
+"use client";
 
-function adminDashboard() {
+const DashboardPage = () => {
   return (
     <div className='flex justify-center items-center h-screen fixed right-0 top-0'>adminDashboard</div>
   )
 }
 
-export default adminDashboard;
+export default DashboardPage;
