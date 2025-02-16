@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-[#1E1E1E] h-16 z-50">
+    <header className="fixed top-0 left-0 right-0 bg-[#1E1E1E] border-b h-16 z-50">
       <div className="flex items-center justify-between h-full px-4">
         {/* Left section with logo and menu button */}
         <div className="flex items-center gap-4">

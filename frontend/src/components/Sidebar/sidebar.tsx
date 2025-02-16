@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from 'react';
 import { MenuList } from './MenuListRoutes';
 import Link from 'next/link';
@@ -26,8 +27,8 @@ const Sidebar = () => {
       return (
         <Link
           href={item.href}
-          className={`flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 ${
-            pathname === item.href ? 'bg-gray-700' : ''
+          className={`flex items-center px-4 py-2 text-[#B5BECC] hover:bg-[#2C2C2C] ${
+            pathname === item.href ? 'bg-[#0072CE] text-white' : ''
           }`}
           style={{ paddingLeft }}
         >
@@ -45,7 +46,9 @@ const Sidebar = () => {
       <div>
         <button
           onClick={() => toggleMenu(item.id)}
-          className="flex items-center justify-between w-full px-4 py-2 text-gray-300 hover:bg-gray-700"
+          className={`flex items-center justify-between w-full px-4 py-2 text-[#B5BECC] hover:bg-[#2C2C2C] ${
+            isExpanded ? 'bg-[#2C2C2C]' : ''
+          }`}
           style={{ paddingLeft }}
         >
           <div className="flex items-center">
@@ -71,8 +74,8 @@ const Sidebar = () => {
         </button>
         
         {isExpanded && hasSubItems && (
-          <ul className="mt-1 space-y-1 bg-gray-800">
-            {item.subItems.map((subItem) => (
+          <ul className="mt-1 space-y-1">
+            {item.subItems?.map((subItem) => (
               <li key={subItem.id}>
                 {renderMenuItem(subItem, depth + 1)}
               </li>
@@ -84,8 +87,8 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="h-full bg-[#1E1E1E] text-white w-full">
-      <nav className="h-full py-4">
+    <aside className="h-screen bg-[#1E1E1E] text-white w-full overflow-y-auto border-r border-[#2C2C2C]">
+      <nav className="py-4 min-h-full">
         <ul className="space-y-1">
           {MenuList.map((item) => (
             <li key={item.id}>
