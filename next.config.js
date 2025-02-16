@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['redefinecommerce.blob.core.windows.net'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'redefinecommerce.blob.core.windows.net',
+        port: '',
+        pathname: '/lanomedia/**',
+      },
+    ],
   },
 }
 
