@@ -1,11 +1,11 @@
 import React from 'react'
 
-function MasterProductFeedDashboard() {
+function RequestAQuote() {
   return (
     <div className='flex justify-center items-center h-screen fixed right-0 top-0'>
-      Master Product Feed Dashboard
+      Request A Quote
     </div>
   )
 }
 
-export default MasterProductFeedDashboard 
+export default RequestAQuote 

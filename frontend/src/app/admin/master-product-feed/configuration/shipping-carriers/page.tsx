@@ -1,11 +1,11 @@
 import React from 'react'
 
-function MasterProductFeedDashboard() {
+function ShippingCarriers() {
   return (
     <div className='flex justify-center items-center h-screen fixed right-0 top-0'>
-      Master Product Feed Dashboard
+      Shipping Carriers Configuration
     </div>
   )
 }
 
-export default MasterProductFeedDashboard 
+export default ShippingCarriers 
