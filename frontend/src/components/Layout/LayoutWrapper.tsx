@@ -1,28 +1,66 @@
 "use client";
 
-import { useState } from "react";
-import { Sidebar } from "@/components/Sidebar/sidebar";
+import React, { useState, useEffect } from 'react';
+import Sidebar from "@/components/Sidebar/sidebar";
 import Header from "@/components/Header/header";
-import MainSidebar from "@/components/AdminSidebar/MainSidebar";
 
 interface LayoutWrapperProps {
   children: React.ReactNode;
 }
 
-export default function LayoutWrapper({ children }: LayoutWrapperProps) {
+const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
+
+  // Handle initial screen size and resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1024) { // lg breakpoint
+        setSidebarOpen(false);
+      } else {
+        setSidebarOpen(true);
+      }
+    };
+
+    // Set initial state
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div className="flex h-screen overflow-hidden">
       <Header onMenuClick={() => setSidebarOpen(!isSidebarOpen)} />
-      <div className="app-sidebar mr-1 min-w-[300px] fixed !-left-96  lg:static bg-slate-100 border-r border-neutral-200 z-60 left-0 h-full lg:left-auto scrollbar-thin scrollbar-thumb-slate-400 scrollbar-track-slate-200">
-      <Sidebar isSideBarOpen={isSidebarOpen} setSideBarOpen={setSidebarOpen}>
-        <MainSidebar />
-      </Sidebar>
+      <div className={`
+        fixed top-16 left-0 h-[calc(100vh-4rem)] 
+        transition-all duration-300 ease-in-out
+        lg:static lg:h-full
+        ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:-translate-x-0'}
+        z-30
+      `}>
+        <div className="w-[300px] h-full">
+          <Sidebar />
+        </div>
       </div>
-      <div className="relative w-full max-h-[calc(100%-4rem)] flex flex-col flex-1 overflow-x-hidden overflow-y-scroll scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-300 top-16">
-        <main>{children}</main>
+      <div className={`
+        relative flex-1 overflow-x-hidden overflow-y-auto
+        transition-all duration-300 ease-in-out
+        pt-16
+        ${isSidebarOpen ? 'lg:ml-[300px]' : 'lg:ml-0'}
+      `}>
+        <main className="min-h-screen">
+          {children}
+        </main>
       </div>
+      {/* Overlay for mobile */}
+      {isSidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
     </div>
   );
-}
+};
+
+export default LayoutWrapper;

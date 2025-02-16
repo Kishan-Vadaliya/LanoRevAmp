@@ -1,9 +1,10 @@
 const SettingDashboard = () => {
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-8 w-full">
-      <div className="grid grid-cols-12 gap-6 max-w-3xl mx-auto mb-6">
+      {/* User and Role Stats */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto mb-6">
         {/* User Wise */}
-        <div className="flex flex-col col-span-full sm:col-span-6 xl:col-span-6 bg-white shadow-lg rounded-md">
+        <div className="flex flex-col bg-white shadow-lg rounded-md">
           <div className="text-center item-center block">
             <div className="flex flex-wrap items-center">
               <div className="relative w-full max-w-full text-center">
@@ -36,7 +37,7 @@ const SettingDashboard = () => {
         </div>
 
         {/* Role Wise */}
-        <div className="flex flex-col col-span-full sm:col-span-6 xl:col-span-6 bg-white shadow-lg rounded-md">
+        <div className="flex flex-col bg-white shadow-lg rounded-md">
           <div className="text-center item-center block">
             <div className="flex flex-wrap items-center">
               <div className="relative w-full max-w-full text-center">
@@ -69,11 +70,12 @@ const SettingDashboard = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-12 gap-6 max-w-full mx-auto mb-6">
-        <div className="flex flex-col col-span-full xl:col-span-2"> </div>
-
-        {/* Modules Wise User */}
-        <div className="flex flex-col col-span-full xl:col-span-4 bg-white shadow-lg rounded-md">
+      {/* Module Stats */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className="lg:col-span-2"></div>
+        
+        {/* Modules Wise User List */}
+        <div className="lg:col-span-4 bg-white shadow-lg rounded-md">
           <div className="text-center item-center block">
             <div className="flex flex-wrap items-center">
               <div className="relative w-full max-w-full text-center">
@@ -141,8 +143,8 @@ const SettingDashboard = () => {
           </div>
         </div>
 
-        {/* Modules Wise User */}
-        <div className="flex flex-col col-span-full xl:col-span-4">
+        {/* Modules Wise User Chart */}
+        <div className="lg:col-span-4 bg-white shadow-lg rounded-md">
           <div className="w-full bg-white shadow-lg rounded-md h-full">
             <div className=" text-base lg:text-xl text-gray-700 px-5 py-4 border-b-2 border-neutral-200">
               <div className="sm:flex sm:justify-between sm:items-center">
@@ -706,7 +708,15 @@ const SettingDashboard = () => {
           </div>
         </div>
       </div>
+
+      {/* Module Buttons */}
+      <div className="mt-6">
+        <ul className="flex flex-wrap justify-center gap-2">
+          {/* ... existing module buttons ... */}
+        </ul>
+      </div>
     </div>
   );
 };
+
 export default SettingDashboard;
