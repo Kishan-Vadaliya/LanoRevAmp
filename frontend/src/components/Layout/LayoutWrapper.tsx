@@ -29,7 +29,7 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#121212]">
+    <div className="flex h-screen overflow-hidden">
       <Header onMenuClick={() => setSidebarOpen(!isSidebarOpen)} />
       
       <div className="flex pt-16"> {/* Add padding-top to account for header height */}
@@ -41,7 +41,7 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
           ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
           z-30
         `}>
-          <div className="w-[300px] h-full">
+          <div className="app-sidebar mr-1 min-w-[300px]">
             <Sidebar />
           </div>
         </div>
@@ -52,7 +52,7 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
           transition-all duration-300 ease-in-out
           ${isSidebarOpen ? 'lg:ml-0' : 'lg:ml-0'}
         `}>
-          <main className="h-[calc(100vh-4rem)] overflow-auto">
+          <main className="relative w-full max-h-[100vh] overflow-x-hidden overflow-y-scroll scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-300">
             {children}
           </main>
         </div>

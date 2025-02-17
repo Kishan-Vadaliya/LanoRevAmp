@@ -27,8 +27,8 @@ const Sidebar = () => {
       return (
         <Link
           href={item.href}
-          className={`flex items-center px-4 py-2 text-[#B5BECC] hover:bg-[#2C2C2C] ${
-            pathname === item.href ? 'bg-[#0072CE] text-white' : ''
+          className={`flex items-center px-6 py-2 text-[#404040] ${
+            pathname === item.href ? 'bg-[#0072CE] text-[#ffffff]' : ''
           }`}
           style={{ paddingLeft }}
         >
@@ -46,9 +46,7 @@ const Sidebar = () => {
       <div>
         <button
           onClick={() => toggleMenu(item.id)}
-          className={`flex items-center justify-between w-full px-4 py-2 text-[#B5BECC] hover:bg-[#2C2C2C] ${
-            isExpanded ? 'bg-[#2C2C2C]' : ''
-          }`}
+          className={`flex items-center justify-between w-full px-4 py-2 text-[#404040]`}
           style={{ paddingLeft }}
         >
           <div className="flex items-center">
@@ -76,7 +74,7 @@ const Sidebar = () => {
         {isExpanded && hasSubItems && (
           <ul className="mt-1 space-y-1">
             {item.subItems?.map((subItem) => (
-              <li key={subItem.id}>
+              <li className='px-4' key={subItem.id}>
                 {renderMenuItem(subItem, depth + 1)}
               </li>
             ))}
@@ -87,7 +85,7 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="h-screen bg-[#1E1E1E] text-white w-full overflow-y-auto border-r border-[#2C2C2C]">
+    <aside className="h-screen bg-[#f6f6f6] text-white w-full overflow-y-auto">
       <nav className="py-4 min-h-full">
         <ul className="space-y-1">
           {MenuList.map((item) => (

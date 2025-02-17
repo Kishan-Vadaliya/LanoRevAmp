@@ -491,10 +491,10 @@ const SettingDashboard = () => {
                           x="195"
                           y="155"
                           className="recharts-text recharts-label"
-                          text-anchor="middle"
-                          dominant-baseline="central"
-                          alignment-baseline="middle"
-                          font-size="12"
+                          textAnchor="middle"
+                          dominantBaseline="central"
+                          alignmentBaseline="middle"
+                          fontSize="12"
                         >
                           Total Modules
                         </text>
@@ -502,11 +502,11 @@ const SettingDashboard = () => {
                           x="195"
                           y="175"
                           className="recharts-text recharts-label"
-                          text-anchor="middle"
-                          dominant-baseline="central"
-                          alignment-baseline="middle"
-                          font-size="22"
-                          font-weight="600"
+                          textAnchor="middle"
+                          dominantBaseline="central"
+                          alignmentBaseline="middle"
+                          fontSize="22"
+                          fontWeight="600"
                         >
                           38
                         </text>

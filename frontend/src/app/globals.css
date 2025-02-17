@@ -17,23 +17,27 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Nunito Sans";
 }
-@layer base {
-  h1 {
-    @apply text-2xl font-semibold mb-6;
-  }
-  h2 {
-    @apply text-xl font-semibold mb-4;
-  }
-  h3 {
-    @apply text-lg font-semibold mb-2;
-  }
-  flex {
-    @apply flex flex-col flex-1 overflow-x-hidden overflow-y-scroll;
-  }
-  grid {
-    @apply grid grid-cols-12 gap-6 max-w-full mx-auto mb-6;
-  }
+
+/* Width of the scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 6px;
+}
+
+/* Track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background: #dce1e7; /* Light grey or subtle gradient */
+}
+
+/* Handle (draggable part) */
+::-webkit-scrollbar-thumb {
+  background: #6377AF;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2d3748; /* Slightly darker on hover */
 }
 
