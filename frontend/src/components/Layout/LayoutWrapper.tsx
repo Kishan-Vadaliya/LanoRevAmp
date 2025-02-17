@@ -41,7 +41,7 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
           ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
           z-30
         `}>
-          <div className="app-sidebar mr-1 min-w-[300px]">
+          <div className="app-sidebar mr-1 min-w-[250px]">
             <Sidebar />
           </div>
         </div>
@@ -52,7 +52,7 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
           transition-all duration-300 ease-in-out
           ${isSidebarOpen ? 'lg:ml-0' : 'lg:ml-0'}
         `}>
-          <main className="relative w-full max-h-[100vh] overflow-x-hidden overflow-y-scroll scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-300">
+          <main className="relative w-full max-h-[100vh] overflow-x-hidden overflow-y-scroll">
             {children}
           </main>
         </div>
