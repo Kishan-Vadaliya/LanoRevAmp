@@ -7,7 +7,9 @@ import { usePathname } from "next/navigation";
 
 const MainSidebar = () => {
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set());
+
   const pathname = usePathname();
+
 
   const handleToggleExpand = useCallback((itemId: string) => {
     setExpandedItems((prev) => {
