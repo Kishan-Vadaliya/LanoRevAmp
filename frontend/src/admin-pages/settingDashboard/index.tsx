@@ -86,7 +86,7 @@ const SettingDashboard = () => {
       </div>
 
       <div className="grid grid-cols-12 gap-6 max-w-full mx-auto mb-6">
-        <div className="hidden xl:block flex flex-col col-span-full xl:col-span-2">
+        <div className="hidden xl:block flex-col col-span-full xl:col-span-2">
           {" "}
         </div>
 
@@ -103,7 +103,7 @@ const SettingDashboard = () => {
                   <div className="text-gray-400"> Users </div>
                 </div>
                 {ModuleWiseUserData.map((item) => (
-                  <div className="p-3 text-gray-700 uppercase text-xs flex justify-between border-b border-neutral-200 last:border-b-0">
+                  <div key={item.name} className="p-3 text-gray-700 uppercase text-xs flex justify-between border-b border-neutral-200 last:border-b-0">
                     <div> {item.name}</div>
                     <div> {item.users}</div>
                   </div>
