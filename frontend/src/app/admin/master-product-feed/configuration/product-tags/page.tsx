@@ -1,11 +1,11 @@
 import React from 'react'
 
-function MasterProductFeedDashboard() {
+function ProductTags() {
   return (
     <div className='flex justify-center items-center h-screen fixed right-0 top-0'>
-      Master Product Feed Dashboard
+      Product Tags Configuration
     </div>
   )
 }
 
-export default MasterProductFeedDashboard 
+export default ProductTags 

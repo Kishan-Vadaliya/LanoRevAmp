@@ -61,7 +61,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
               onClick={() => setIsOpen(!isOpen)}
             >
               <span className="hidden md:block text-sm font-medium truncate max-w-[150px]">
-              Dhrumisha Rakholiya
+              Kishan Patel
               </span>
               <div className="h-8 w-8 rounded-full overflow-hidden flex-shrink-0 bg-gray-700 flex items-center justify-center">
                 <svg className="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -77,7 +77,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
             {isOpen && (
               <div className="absolute right-0 mt-2 w-64 bg-[#FFFFFf] border border-light-300 rounded-md shadow-lg py-1">
                 <div className="px-4 py-2 border-b border-light-300">
-                  <p className="text-sm font-medium text-black-200">Dhrumisha</p>
+                  <p className="text-sm font-medium text-black-200">Kishan</p>
                   <p className="text-xs text-gray-400">Super Admin</p>
                 </div>
                 <nav className="py-1">

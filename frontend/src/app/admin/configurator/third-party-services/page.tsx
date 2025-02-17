@@ -1,11 +1,11 @@
 import React from 'react'
 
-function MasterProductFeedDashboard() {
+function ThirdPartyServices() {
   return (
     <div className='flex justify-center items-center h-screen fixed right-0 top-0'>
-      Master Product Feed Dashboard
+      Third Party Services Configuration
     </div>
   )
 }
 
-export default MasterProductFeedDashboard 
+export default ThirdPartyServices 
