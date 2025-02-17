@@ -52,7 +52,7 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
           transition-all duration-300 ease-in-out
           ${isSidebarOpen ? 'lg:ml-0' : 'lg:ml-0'}
         `}>
-          <main className="relative w-full max-h-[100vh] overflow-x-hidden overflow-y-scroll">
+          <main className="relative w-full max-h-[100vh] overflow-x-hidden overflow-y-hidden">
             {children}
           </main>
         </div>
