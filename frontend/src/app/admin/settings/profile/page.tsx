@@ -1,9 +1,7 @@
 import React from 'react'
-
 function settingsProfile() {
   return (
-    <div>settingsProfile</div>
+    <h1>settingsProfile</h1>
   )
 }
-
 export default settingsProfile;
