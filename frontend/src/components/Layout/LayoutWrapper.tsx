@@ -50,7 +50,7 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
         <div className={`
           flex-1
           transition-all duration-300 ease-in-out
-          ${isSidebarOpen ? 'lg:ml-[300px]' : 'lg:ml-0'}
+          ${isSidebarOpen ? 'lg:ml-0' : 'lg:ml-0'}
         `}>
           <main className="h-[calc(100vh-4rem)] overflow-auto">
             {children}
