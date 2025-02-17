@@ -1,8 +1,8 @@
 import React from 'react'
-
+import SettingDashboard from '@/admin-pages/settingDashboard'
 function settingsDashboard() {
   return (
-    <div className='flex justify-center items-center h-screen fixed right-0 top-0'>settingsDashboard</div>
+      <SettingDashboard />
   )
 }
 

@@ -19,3 +19,21 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+@layer base {
+  h1 {
+    @apply text-2xl font-semibold mb-6;
+  }
+  h2 {
+    @apply text-xl font-semibold mb-4;
+  }
+  h3 {
+    @apply text-lg font-semibold mb-2;
+  }
+  flex {
+    @apply flex flex-col flex-1 overflow-x-hidden overflow-y-scroll;
+  }
+  grid {
+    @apply grid grid-cols-12 gap-6 max-w-full mx-auto mb-6;
+  }
+}
+

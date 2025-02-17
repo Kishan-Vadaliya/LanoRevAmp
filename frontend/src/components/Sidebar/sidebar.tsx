@@ -1,38 +1,104 @@
-import React from "react";
+"use client";
+import React, { useState } from 'react';
+import { MenuList } from './MenuListRoutes';
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { usePathname } from 'next/navigation';
+import { MenuItem } from '../../types/sidebar/NavItem/sidebar.types';
 
-interface SidebarProps {
-  children: React.ReactNode;
-  isSideBarOpen: boolean;
-  setSideBarOpen: (isOpen: boolean) => void;
-}
+const Sidebar = () => {
+  const [expandedMenus, setExpandedMenus] = useState<string[]>([]);
+  const pathname = usePathname();
 
-export const Sidebar: React.FC<SidebarProps> = ({
-  children,
-  isSideBarOpen,
-  setSideBarOpen,
-}) => {
+  const toggleMenu = (menuId: string) => {
+    setExpandedMenus(prev => 
+      prev.includes(menuId) 
+        ? prev.filter(id => id !== menuId)
+        : [...prev, menuId]
+    );
+  };
+
+  const renderMenuItem = (item: MenuItem, depth = 0) => {
+    const isExpanded = expandedMenus.includes(item.id);
+    const hasSubItems = item.subItems && item.subItems.length > 0;
+    const paddingLeft = `${depth * 16 + 16}px`;
+
+    if (item.href && !hasSubItems) {
+      return (
+        <Link
+          href={item.href}
+          className={`flex items-center px-4 py-2 text-[#B5BECC] hover:bg-[#2C2C2C] ${
+            pathname === item.href ? 'bg-[#0072CE] text-white' : ''
+          }`}
+          style={{ paddingLeft }}
+        >
+          {item.icon && depth === 0 && (
+            <span className="w-5 h-5 mr-3">
+              <FontAwesomeIcon icon={item.icon} />
+            </span>
+          )}
+          <span>{item.label}</span>
+        </Link>
+      );
+    }
+
+    return (
+      <div>
+        <button
+          onClick={() => toggleMenu(item.id)}
+          className={`flex items-center justify-between w-full px-4 py-2 text-[#B5BECC] hover:bg-[#2C2C2C] ${
+            isExpanded ? 'bg-[#2C2C2C]' : ''
+          }`}
+          style={{ paddingLeft }}
+        >
+          <div className="flex items-center">
+            {item.icon && depth === 0 && (
+              <span className="w-5 h-5 mr-3">
+                <FontAwesomeIcon icon={item.icon} />
+              </span>
+            )}
+            <span>{item.label}</span>
+          </div>
+          {hasSubItems && (
+            <svg
+              className={`w-4 h-4 transition-transform ${
+                isExpanded ? 'rotate-180' : ''
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          )}
+        </button>
+        
+        {isExpanded && hasSubItems && (
+          <ul className="mt-1 space-y-1">
+            {item.subItems?.map((subItem) => (
+              <li key={subItem.id}>
+                {renderMenuItem(subItem, depth + 1)}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    );
+  };
+
   return (
-    <>
-      {/* Mobile overlay */}
-      {isSideBarOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
-          onClick={() => setSideBarOpen(false)}
-        />
-      )}
-
-      {/* Sidebar */}
-      <aside
-        className={`fixed lg:static inset-y-0 left-0 z-30 w-64 transform 
-          ${isSideBarOpen ? "translate-x-0" : "-translate-x-full"}
-          lg:translate-x-0 transition-transform duration-200 ease-in-out
-          bg-[#1a1c23] border-r border-gray-700
-          overflow-y-auto`}
-      >
-        <div className="p-4 pt-20 lg:pt-4">
-          {children}
-        </div>
-      </aside>
-    </>
+    <aside className="h-screen bg-[#1E1E1E] text-white w-full overflow-y-auto border-r border-[#2C2C2C]">
+      <nav className="py-4 min-h-full">
+        <ul className="space-y-1">
+          {MenuList.map((item) => (
+            <li key={item.id}>
+              {renderMenuItem(item)}
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
   );
 };
+
+export default Sidebar;

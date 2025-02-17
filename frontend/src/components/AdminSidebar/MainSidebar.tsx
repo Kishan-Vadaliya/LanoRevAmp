@@ -7,18 +7,24 @@ import { usePathname } from "next/navigation";
 
 const MainSidebar = () => {
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set());
+
   const pathname = usePathname();
+
+
   const handleToggleExpand = useCallback((itemId: string) => {
     setExpandedItems((prev) => {
       const next = new Set(prev);
-      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-      next.has(itemId) ? next.delete(itemId) : next.add(itemId);
+      if (next.has(itemId)) {
+        next.delete(itemId);
+      } else {
+        next.add(itemId);
+      }
       return next;
     });
   }, []);
 
   return (
-    <nav className="space-y-1">
+    <nav className="space-y-4">
       <NavSideItems
         menuItems={MenuList}
         expandedItems={expandedItems}
@@ -26,7 +32,6 @@ const MainSidebar = () => {
         onItemSelect={() => {}}
         onToggleExpand={handleToggleExpand}
       />
-    
     </nav>
   );
 };
