@@ -27,29 +27,13 @@ export default function SystemLogs() {
       ipAddress: "152.58.34.11",
     },
     {
-      page: "UserWiseWidget",
+      page: "UserRoleWidget",
       moduleName: "Users",
       event: "Updated",
       createdBy: "Vatsal P",
-      date: "02/16/2025 08:49 AM",
+      date: "02/16/2025 09:49 AM",
       ipAddress: "152.58.34.13",
-    },
-    {
-      page: "UserWiseWidget",
-      moduleName: "Users",
-      event: "Updated",
-      createdBy: "Jatin D",
-      date: "02/16/2025 08:49 AM",
-      ipAddress: "152.58.34.14",
-    },
-    {
-      page: "UserWiseWidget",
-      moduleName: "Users",
-      event: "Updated",
-      createdBy: "Jay C",
-      date: "02/16/2025 08:49 AM",
-      ipAddress: "152.58.34.15",
-    },
+    }
   ]);
 
   const [searchQuery, setSearchQuery] = useState("");
