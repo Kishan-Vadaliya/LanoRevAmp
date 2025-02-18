@@ -33,7 +33,7 @@ export default function SystemLogs() {
       createdBy: "Vatsal P",
       date: "02/16/2025 09:49 AM",
       ipAddress: "152.58.34.13",
-    }
+    },
   ]);
 
   const [searchQuery, setSearchQuery] = useState("");

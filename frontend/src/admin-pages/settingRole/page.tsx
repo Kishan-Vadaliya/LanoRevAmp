@@ -4,7 +4,10 @@ import { createColumnHelper } from "@tanstack/react-table";
 import CustomTable from "../../components/CustomTable/CustomTable";
 import PageLayout from "../../components/common/PageLayout";
 import TableFilters from "../../components/common/TableFilters";
-import { createActionColumn, createStatusColumn } from "../../components/common/TableColumnHelpers";
+import {
+  createActionColumn,
+  createStatusColumn,
+} from "../../components/common/TableColumnHelpers";
 
 interface Role {
   name: string;
@@ -56,12 +59,14 @@ export default function Roles() {
 
   const columns = [
     columnHelper.accessor("name", {
-      id: 'name',
+      id: "name",
       header: "NAME",
       cell: (info) => (
         <div>
           <div className="font-medium">{info.getValue()}</div>
-          <div className="text-sm text-gray-500">{info.row.original.description}</div>
+          <div className="text-sm text-gray-500">
+            {info.row.original.description}
+          </div>
         </div>
       ),
     }),

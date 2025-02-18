@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { createColumnHelper, CellContext } from "@tanstack/react-table";
 
 interface WithStatus {
@@ -11,12 +11,12 @@ interface WithName {
 
 export const createActionColumn = <T extends WithName>() => {
   const columnHelper = createColumnHelper<T>();
-  
+
   return columnHelper.display({
-    id: 'actions',
+    id: "actions",
     header: () => "",
     cell: () => (
-      <button 
+      <button
         type="button"
         className="text-gray-400 hover:text-gray-600"
         aria-label="Actions"
@@ -29,18 +29,18 @@ export const createActionColumn = <T extends WithName>() => {
 
 export const createStatusColumn = <T extends WithStatus>() => {
   const columnHelper = createColumnHelper<T>();
-  
-  return columnHelper.accessor('status', {
-    id: 'status',
+
+  return columnHelper.accessor("status", {
+    id: "status",
     header: () => "STATUS",
     cell: (info: CellContext<T, string>) => {
       const value = info.getValue();
       return (
-        <span 
+        <span
           className={`px-2 py-1 rounded-full text-xs ${
-            value === 'Active' 
-              ? 'bg-green-100 text-green-800' 
-              : 'bg-red-100 text-red-800'
+            value === "Active"
+              ? "bg-green-100 text-green-800"
+              : "bg-red-100 text-red-800"
           }`}
         >
           {value}
@@ -48,4 +48,4 @@ export const createStatusColumn = <T extends WithStatus>() => {
       );
     },
   });
-}; 
+};

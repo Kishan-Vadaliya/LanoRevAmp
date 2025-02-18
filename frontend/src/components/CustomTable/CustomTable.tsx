@@ -8,7 +8,6 @@ import {
   useReactTable,
   ColumnDef,
   SortingState,
-  
 } from "@tanstack/react-table";
 
 interface CustomTableProps<T extends object> {

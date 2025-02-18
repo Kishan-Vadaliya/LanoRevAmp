@@ -43,7 +43,6 @@ export default function Users() {
       updatedBy: "Hitesh Nai",
       status: "Active",
     },
-
   ]);
 
   const [searchQuery, setSearchQuery] = useState("");
