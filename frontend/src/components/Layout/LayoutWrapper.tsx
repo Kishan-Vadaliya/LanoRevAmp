@@ -46,7 +46,7 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
           z-30
         `}
         >
-          <div className="app-sidebar mr-1 min-w-[250px]">
+          <div className="app-sidebar mr-1 min-w-[300px]">
             <Sidebar />
           </div>
         </div>
