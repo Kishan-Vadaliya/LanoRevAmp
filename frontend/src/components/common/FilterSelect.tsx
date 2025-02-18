@@ -36,4 +36,4 @@ const FilterSelect: React.FC<FilterSelectProps> = ({
   );
 };
 
-export default FilterSelect; 
+export default FilterSelect;

@@ -43,6 +43,7 @@ export default function Users() {
       updatedBy: "Hitesh Nai",
       status: "Active",
     },
+
     // Add more sample data as needed
   ]);
 
@@ -51,12 +52,13 @@ export default function Users() {
   const [statusFilter, setStatusFilter] = useState("all");
 
   const filteredData = data.filter((user) => {
-    const matchesSearch = 
+    const matchesSearch =
       user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       user.email.toLowerCase().includes(searchQuery.toLowerCase());
-    
+
     const matchesRole = roleFilter === "all" || user.roles === roleFilter;
-    const matchesStatus = statusFilter === "all" || user.status === statusFilter;
+    const matchesStatus =
+      statusFilter === "all" || user.status === statusFilter;
 
     return matchesSearch && matchesRole && matchesStatus;
   });
@@ -66,14 +68,16 @@ export default function Users() {
       header: "NAME",
       cell: (info) => (
         <div className="flex items-center">
-          <img 
-            src="/no-image.png" 
-            alt={info.getValue()} 
+          <img
+            src="/no-image.png"
+            alt={info.getValue()}
             className="w-8 h-8 rounded-full mr-2"
           />
           <div>
             <div>{info.getValue()}</div>
-            <div className="text-sm text-gray-500">{info.row.original.email}</div>
+            <div className="text-sm text-gray-500">
+              {info.row.original.email}
+            </div>
           </div>
         </div>
       ),
@@ -99,11 +103,13 @@ export default function Users() {
     columnHelper.accessor("status", {
       header: "STATUS",
       cell: (info) => (
-        <span className={`px-2 py-1 rounded-full text-xs ${
-          info.getValue() === 'Active' 
-            ? 'bg-green-100 text-green-800' 
-            : 'bg-red-100 text-red-800'
-        }`}>
+        <span
+          className={`px-2 py-1 rounded-full text-xs ${
+            info.getValue() === "Active"
+              ? "bg-green-100 text-green-800"
+              : "bg-red-100 text-red-800"
+          }`}
+        >
           {info.getValue()}
         </span>
       ),
@@ -111,19 +117,19 @@ export default function Users() {
     columnHelper.accessor("name", {
       header: "",
       cell: () => (
-        <button className="text-gray-400 hover:text-gray-600">
-          ⋮
-        </button>
+        <button className="text-gray-400 hover:text-gray-600">⋮</button>
       ),
     }),
   ];
 
   return (
-    <PageLayout 
+    <PageLayout
       title="Users"
       actionButton={{
         text: "Invite Users",
-        onClick: () => {/* handle invite */},
+        onClick: () => {
+          /* handle invite */
+        },
       }}
     >
       <TableFilters

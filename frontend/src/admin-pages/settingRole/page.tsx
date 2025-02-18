@@ -43,11 +43,12 @@ export default function Roles() {
   const [statusFilter, setStatusFilter] = useState("all");
 
   const filteredData = data.filter((role) => {
-    const matchesSearch = 
+    const matchesSearch =
       role.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       role.description.toLowerCase().includes(searchQuery.toLowerCase());
-    
-    const matchesStatus = statusFilter === "all" || role.status === statusFilter;
+
+    const matchesStatus =
+      statusFilter === "all" || role.status === statusFilter;
 
     return matchesSearch && matchesStatus;
   });
@@ -58,7 +59,9 @@ export default function Roles() {
       cell: (info) => (
         <div>
           <div className="font-medium">{info.getValue()}</div>
-          <div className="text-sm text-gray-500">{info.row.original.description}</div>
+          <div className="text-sm text-gray-500">
+            {info.row.original.description}
+          </div>
         </div>
       ),
     }),
@@ -77,11 +80,13 @@ export default function Roles() {
     columnHelper.accessor("status", {
       header: "STATUS",
       cell: (info) => (
-        <span className={`px-2 py-1 rounded-full text-xs ${
-          info.getValue() === 'Active' 
-            ? 'bg-green-100 text-green-800' 
-            : 'bg-red-100 text-red-800'
-        }`}>
+        <span
+          className={`px-2 py-1 rounded-full text-xs ${
+            info.getValue() === "Active"
+              ? "bg-green-100 text-green-800"
+              : "bg-red-100 text-red-800"
+          }`}
+        >
           {info.getValue()}
         </span>
       ),
@@ -90,19 +95,19 @@ export default function Roles() {
       header: "",
       id: "actions",
       cell: () => (
-        <button className="text-gray-400 hover:text-gray-600">
-          ⋮
-        </button>
+        <button className="text-gray-400 hover:text-gray-600">⋮</button>
       ),
     }),
   ];
 
   return (
-    <PageLayout 
+    <PageLayout
       title="Roles"
       actionButton={{
         text: "Create Roles",
-        onClick: () => {/* handle create */},
+        onClick: () => {
+          /* handle create */
+        },
       }}
     >
       <TableFilters

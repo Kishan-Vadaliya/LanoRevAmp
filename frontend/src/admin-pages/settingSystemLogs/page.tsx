@@ -58,8 +58,6 @@ export default function SystemLogs() {
       date: "02/16/2025 08:49 AM",
       ipAddress: "152.58.34.15",
     },
-  
-    
   ]);
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -67,11 +65,12 @@ export default function SystemLogs() {
   const [eventFilter, setEventFilter] = useState("all");
 
   const filteredData = data.filter((log) => {
-    const matchesSearch = 
+    const matchesSearch =
       log.page.toLowerCase().includes(searchQuery.toLowerCase()) ||
       log.createdBy.toLowerCase().includes(searchQuery.toLowerCase());
-    
-    const matchesModule = moduleFilter === "all" || log.moduleName === moduleFilter;
+
+    const matchesModule =
+      moduleFilter === "all" || log.moduleName === moduleFilter;
     const matchesEvent = eventFilter === "all" || log.event === eventFilter;
 
     return matchesSearch && matchesModule && matchesEvent;
@@ -89,11 +88,13 @@ export default function SystemLogs() {
     columnHelper.accessor("event", {
       header: "EVENT",
       cell: (info) => (
-        <span className={`px-2 py-1 rounded-full text-xs ${
-          info.getValue() === 'Updated' 
-            ? 'bg-blue-100 text-blue-800'
-            : 'bg-gray-100 text-gray-800'
-        }`}>
+        <span
+          className={`px-2 py-1 rounded-full text-xs ${
+            info.getValue() === "Updated"
+              ? "bg-blue-100 text-blue-800"
+              : "bg-gray-100 text-gray-800"
+          }`}
+        >
           {info.getValue()}
         </span>
       ),
@@ -113,9 +114,7 @@ export default function SystemLogs() {
   ];
 
   return (
-    <PageLayout 
-      title="System Logs"
-    >
+    <PageLayout title="System Logs">
       <TableFilters
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}

@@ -20,12 +20,9 @@ interface TableFiltersProps {
   };
 }
 
-const TableFilters: React.FC<TableFiltersProps> = ({
-  filters = {},
-}) => {
+const TableFilters: React.FC<TableFiltersProps> = ({ filters = {} }) => {
   return (
     <div className="mb-4 flex flex-col sm:flex-row gap-4">
-
       {Object.entries(filters).map(([key, filter]) => (
         <FilterSelect
           key={key}
@@ -39,4 +36,4 @@ const TableFilters: React.FC<TableFiltersProps> = ({
   );
 };
 
-export default TableFilters; 
+export default TableFilters;

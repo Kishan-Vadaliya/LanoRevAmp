@@ -17,14 +17,17 @@ const SettingDashboard = () => {
       prevData.map((item) =>
         item.name === name
           ? { ...item, users: item.users === 0 ? 38 : 0 }
-          : item
-      )
+          : item,
+      ),
     );
   };
 
-  const StatCard = ({ title, stats }: { 
-    title: string; 
-    stats: { label: string; value: number; }[] 
+  const StatCard = ({
+    title,
+    stats,
+  }: {
+    title: string;
+    stats: { label: string; value: number }[];
   }) => (
     <div className="flex flex-col col-span-full sm:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200">
       <div className="px-5 pt-5">
@@ -44,21 +47,21 @@ const SettingDashboard = () => {
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-8 w-full">
       <div className="grid grid-cols-12 gap-6 mb-6">
-        <StatCard 
-          title="Users" 
+        <StatCard
+          title="Users"
           stats={[
             { label: "ACTIVE", value: 38 },
             { label: "INACTIVE", value: 0 },
-            { label: "TOTAL", value: 38 }
-          ]} 
+            { label: "TOTAL", value: 38 },
+          ]}
         />
-        <StatCard 
-          title="Roles" 
+        <StatCard
+          title="Roles"
           stats={[
             { label: "ACTIVE", value: 4 },
             { label: "INACTIVE", value: 0 },
-            { label: "TOTAL", value: 4 }
-          ]} 
+            { label: "TOTAL", value: 4 },
+          ]}
         />
       </div>
 

@@ -15,7 +15,10 @@ interface CustomTableProps<T extends object> {
   data: T[];
 }
 
-const CustomTable = <T extends object>({ columns, data }: CustomTableProps<T>) => {
+const CustomTable = <T extends object>({
+  columns,
+  data,
+}: CustomTableProps<T>) => {
   const [filterInput, setFilterInput] = useState("");
   const [sorting, setSorting] = useState<SortingState>([]);
 
@@ -112,7 +115,9 @@ const CustomTable = <T extends object>({ columns, data }: CustomTableProps<T>) =
                         )}
                         {header.column.getIsSorted() && (
                           <span>
-                            {header.column.getIsSorted() === "asc" ? " ↑" : " ↓"}
+                            {header.column.getIsSorted() === "asc"
+                              ? " ↑"
+                              : " ↓"}
                           </span>
                         )}
                       </div>
@@ -132,7 +137,10 @@ const CustomTable = <T extends object>({ columns, data }: CustomTableProps<T>) =
                       key={cell.id}
                       className="px-6 py-3 text-sm text-gray-900 whitespace-nowrap"
                     >
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext(),
+                      )}
                     </td>
                   ))}
                 </tr>
