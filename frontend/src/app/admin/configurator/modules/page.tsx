@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Modules() {
-  return (
-    <div>
-      Modules Configuration
-    </div>
-  )
+  return <div>Modules Configuration</div>;
 }
 
-export default Modules 
+export default Modules;

@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ProductCustom() {
-  return (
-    <div>
-      Product Custom Configuration
-    </div>
-  )
+  return <div>Product Custom Configuration</div>;
 }
 
-export default ProductCustom 
+export default ProductCustom;

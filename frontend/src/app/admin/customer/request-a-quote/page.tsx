@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function RequestAQuote() {
-  return (
-    <div>
-      Request A Quote
-    </div>
-  )
+  return <div>Request A Quote</div>;
 }
 
-export default RequestAQuote 
+export default RequestAQuote;

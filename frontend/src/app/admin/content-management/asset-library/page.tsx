@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ContentManagementAssetLibrary() {
-  return (
-    <div>
-      Content Management Asset Library
-    </div>
-  )
+  return <div>Content Management Asset Library</div>;
 }
 
-export default ContentManagementAssetLibrary 
+export default ContentManagementAssetLibrary;

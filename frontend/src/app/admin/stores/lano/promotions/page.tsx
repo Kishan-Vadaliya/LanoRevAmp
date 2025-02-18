@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function storesLanoPromotions() {
-  return (
-    <div>storesLanoPromotions</div>
-  )
+  return <div>storesLanoPromotions</div>;
 }
 
-export default storesLanoPromotions
+export default storesLanoPromotions;

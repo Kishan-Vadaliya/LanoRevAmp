@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function PaymentTypes() {
-  return (
-    <div>
-      Payment Types Configuration
-    </div>
-  )
+  return <div>Payment Types Configuration</div>;
 }
 
-export default PaymentTypes 
+export default PaymentTypes;

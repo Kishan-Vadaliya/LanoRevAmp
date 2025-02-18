@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function CompanyConfiguration() {
-  return (
-    <div>
-      Company Configuration
-    </div>
-  )
+  return <div>Company Configuration</div>;
 }
 
-export default CompanyConfiguration 
+export default CompanyConfiguration;

@@ -1,20 +1,20 @@
 "use client";
-import React, { useState } from 'react';
-import { MenuList } from './MenuListRoutes';
-import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { usePathname } from 'next/navigation';
-import { MenuItem } from '../../types/sidebar/NavItem/sidebar.types';
+import React, { useState } from "react";
+import { MenuList } from "./MenuListRoutes";
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { usePathname } from "next/navigation";
+import { MenuItem } from "../../types/sidebar/NavItem/sidebar.types";
 
 const Sidebar = () => {
   const [expandedMenus, setExpandedMenus] = useState<string[]>([]);
   const pathname = usePathname();
 
   const toggleMenu = (menuId: string) => {
-    setExpandedMenus(prev => 
-      prev.includes(menuId) 
-        ? prev.filter(id => id !== menuId)
-        : [...prev, menuId]
+    setExpandedMenus((prev) =>
+      prev.includes(menuId)
+        ? prev.filter((id) => id !== menuId)
+        : [...prev, menuId],
     );
   };
 
@@ -28,7 +28,7 @@ const Sidebar = () => {
         <Link
           href={item.href}
           className={`flex items-center px-6 py-2 text-[#404040] ${
-            pathname === item.href ? 'bg-[#0072CE] text-[#ffffff]' : ''
+            pathname === item.href ? "bg-[#0072CE] text-[#ffffff]" : ""
           }`}
           style={{ paddingLeft }}
         >
@@ -60,21 +60,26 @@ const Sidebar = () => {
           {hasSubItems && (
             <svg
               className={`w-4 h-4 transition-transform ${
-                isExpanded ? 'rotate-180' : ''
+                isExpanded ? "rotate-180" : ""
               }`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           )}
         </button>
-        
+
         {isExpanded && hasSubItems && (
           <ul className="mt-1 space-y-1">
             {item.subItems?.map((subItem) => (
-              <li className='px-4' key={subItem.id}>
+              <li className="px-4" key={subItem.id}>
                 {renderMenuItem(subItem, depth + 1)}
               </li>
             ))}
@@ -89,9 +94,7 @@ const Sidebar = () => {
       <nav className="py-4 min-h-full">
         <ul className="space-y-1">
           {MenuList.map((item) => (
-            <li key={item.id}>
-              {renderMenuItem(item)}
-            </li>
+            <li key={item.id}>{renderMenuItem(item)}</li>
           ))}
         </ul>
       </nav>

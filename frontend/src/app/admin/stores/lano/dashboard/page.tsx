@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function storesLanoDashboard() {
-  return (
-    <div>storesLanoDashboard</div>
-  )
+  return <div>storesLanoDashboard</div>;
 }
 
 export default storesLanoDashboard;

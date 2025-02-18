@@ -1,9 +1,13 @@
-import React from 'react'
+'use client'
+import React from "react";
+import SystemLogs from "@/admin-pages/settingSystemLogs/page";
 
-function settingsSystemLog() {
+function SettingsSystemLog() {
   return (
-    <div>settingsSystemLog</div>
-  )
+    <div>
+      <SystemLogs />
+    </div>
+  );
 }
 
-export default settingsSystemLog;
+export default SettingsSystemLog;

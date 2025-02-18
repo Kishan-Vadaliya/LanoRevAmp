@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ContentManagementStoryCategory() {
-  return (
-    <div>
-      Content Management Story Category
-    </div>
-  )
+  return <div>Content Management Story Category</div>;
 }
 
-export default ContentManagementStoryCategory 
+export default ContentManagementStoryCategory;

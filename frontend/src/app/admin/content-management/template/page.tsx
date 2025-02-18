@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ContentManagementTemplate() {
-  return (
-    <div>
-      Content Management Template
-    </div>
-  )
+  return <div>Content Management Template</div>;
 }
 
-export default ContentManagementTemplate 
+export default ContentManagementTemplate;

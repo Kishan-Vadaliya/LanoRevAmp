@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ShippingCarriers() {
-  return (
-    <div>
-      Shipping Carriers Configuration
-    </div>
-  )
+  return <div>Shipping Carriers Configuration</div>;
 }
 
-export default ShippingCarriers 
+export default ShippingCarriers;

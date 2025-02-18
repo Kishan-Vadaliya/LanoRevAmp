@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ContentManagementContent() {
-  return (
-    <div>
-        Content Management Content
-    </div>
-  )
+  return <div>Content Management Content</div>;
 }
 
-export default ContentManagementContent 
+export default ContentManagementContent;

@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ProductTags() {
-  return (
-    <div>
-      Product Tags Configuration
-    </div>
-  )
+  return <div>Product Tags Configuration</div>;
 }
 
-export default ProductTags 
+export default ProductTags;

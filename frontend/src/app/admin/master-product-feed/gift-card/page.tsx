@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function MasterProductFeedGiftCard() {
-  return (
-    <div>
-      Master Product Feed Gift Card
-    </div>
-  )
+  return <div>Master Product Feed Gift Card</div>;
 }
 
-export default MasterProductFeedGiftCard 
+export default MasterProductFeedGiftCard;

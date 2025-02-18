@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function storesLanoCategoryMaster() {
-  return (
-    <div>storesLanoCategoryMaster</div>
-  )
+  return <div>storesLanoCategoryMaster</div>;
 }
 
-export default storesLanoCategoryMaster
+export default storesLanoCategoryMaster;

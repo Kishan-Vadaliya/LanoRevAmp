@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ShippingCost() {
-  return (
-    <div>
-      Shipping Cost Configuration
-    </div>
-  )
+  return <div>Shipping Cost Configuration</div>;
 }
 
-export default ShippingCost 
+export default ShippingCost;

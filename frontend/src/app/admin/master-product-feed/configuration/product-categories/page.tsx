@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ProductCategories() {
-  return (
-    <div>
-      Product Categories Configuration
-    </div>
-  )
+  return <div>Product Categories Configuration</div>;
 }
 
-export default ProductCategories 
+export default ProductCategories;

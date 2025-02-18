@@ -10,7 +10,6 @@ const MainSidebar = () => {
 
   const pathname = usePathname();
 
-
   const handleToggleExpand = useCallback((itemId: string) => {
     setExpandedItems((prev) => {
       const next = new Set(prev);

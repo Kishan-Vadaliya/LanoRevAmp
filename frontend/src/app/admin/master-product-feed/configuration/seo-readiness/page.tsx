@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function SEOReadiness() {
-  return (
-    <div>
-      SEO Readiness Configuration
-    </div>
-  )
+  return <div>SEO Readiness Configuration</div>;
 }
 
-export default SEOReadiness 
+export default SEOReadiness;

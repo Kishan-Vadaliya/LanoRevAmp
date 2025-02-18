@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function CoreProductFeed() {
-  return (
-    <div>
-      Core Product Feed
-    </div>
-  )
+  return <div>Core Product Feed</div>;
 }
 
-export default CoreProductFeed 
+export default CoreProductFeed;

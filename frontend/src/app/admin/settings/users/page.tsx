@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function settingsUsers() {
-  return (
-    <div>settingsUsers</div>
-  )
+  return <div>settingsUsers</div>;
 }
 
-export default settingsUsers
+export default settingsUsers;

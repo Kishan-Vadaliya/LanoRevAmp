@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Vendors() {
-  return (
-    <div>
-      Vendors Configuration
-    </div>
-  )
+  return <div>Vendors Configuration</div>;
 }
 
-export default Vendors 
+export default Vendors;

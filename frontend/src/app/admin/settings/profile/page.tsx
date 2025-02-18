@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
+
 function settingsProfile() {
-  return (
-    <h1>settingsProfile</h1>
-  )
+  return <div>settingsProfile</div>;
 }
+
 export default settingsProfile;

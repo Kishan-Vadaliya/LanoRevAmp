@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function NewsletterArchive() {
-  return (
-    <div>
-      Newsletter Archive
-    </div>
-  )
+  return <div>Newsletter Archive</div>;
 }
 
-export default NewsletterArchive 
+export default NewsletterArchive;

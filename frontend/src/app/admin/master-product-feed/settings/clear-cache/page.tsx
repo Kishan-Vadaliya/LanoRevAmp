@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ClearCache() {
-  return (
-    <div>
-      Clear Cache
-    </div>
-  )
+  return <div>Clear Cache</div>;
 }
 
-export default ClearCache 
+export default ClearCache;

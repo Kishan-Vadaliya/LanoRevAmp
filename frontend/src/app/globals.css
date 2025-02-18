@@ -33,11 +33,10 @@ body {
 
 /* Handle (draggable part) */
 ::-webkit-scrollbar-thumb {
-  background: #6377AF;
+  background: #6377af;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #2d3748; /* Slightly darker on hover */
 }
-

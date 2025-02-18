@@ -1,9 +1,7 @@
-import React from 'react'
-import SettingDashboard from '@/admin-pages/settingDashboard'
+import React from "react";
+import SettingDashboard from "@/admin-pages/settingDashboard";
 function settingsDashboard() {
-  return (
-      <SettingDashboard />
-  )
+  return <SettingDashboard />;
 }
 
-export default settingsDashboard
+export default settingsDashboard;

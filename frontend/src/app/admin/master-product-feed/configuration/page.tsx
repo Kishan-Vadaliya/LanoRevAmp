@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function MasterProductFeedConfiguration() {
-  return (
-    <div>
-      Master Product Feed Configuration
-    </div>
-  )
+  return <div>Master Product Feed Configuration</div>;
 }
 
-export default MasterProductFeedConfiguration 
+export default MasterProductFeedConfiguration;

@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function PhoneOrder() {
-  return (
-    <div>
-      Phone Order
-    </div>
-  )
+  return <div>Phone Order</div>;
 }
 
-export default PhoneOrder 
+export default PhoneOrder;

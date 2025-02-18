@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Testimonial() {
-  return (
-    <div>
-      Customer Testimonial
-    </div>
-  )
+  return <div>Customer Testimonial</div>;
 }
 
-export default Testimonial 
+export default Testimonial;

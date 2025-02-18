@@ -10,8 +10,8 @@ const SettingDashboard = () => {
       prevData.map((item) =>
         item.name === name
           ? { ...item, users: item.users === 0 ? 38 : 0 } // Toggle users count
-          : item
-      )
+          : item,
+      ),
     );
   };
 
@@ -67,7 +67,9 @@ const SettingDashboard = () => {
         {/* Modules Wise User Table */}
         <div className="flex flex-col col-span-full xl:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200">
           <div className="px-5 pt-5">
-            <h2 className="text-lg font-semibold text-slate-800 mb-4">Modules Wise User</h2>
+            <h2 className="text-lg font-semibold text-slate-800 mb-4">
+              Modules Wise User
+            </h2>
             <div className="divide-y divide-slate-200">
               <div className="flex justify-between py-3 font-semibold">
                 <div className="text-sm text-slate-500">MODULE NAME</div>
@@ -76,7 +78,9 @@ const SettingDashboard = () => {
               {ModuleWiseUserData.map((item) => (
                 <div key={item.name} className="flex justify-between py-3">
                   <div className="text-sm text-slate-600">{item.name}</div>
-                  <div className="text-sm font-medium text-slate-800">{item.users}</div>
+                  <div className="text-sm font-medium text-slate-800">
+                    {item.users}
+                  </div>
                 </div>
               ))}
             </div>
@@ -86,8 +90,10 @@ const SettingDashboard = () => {
         {/* Module Wise User Report Chart */}
         <div className="flex flex-col col-span-full xl:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200">
           <div className="px-5 pt-5">
-            <h2 className="text-lg font-semibold text-slate-800 mb-4">Module Wise User Report</h2>
-            <div className="flex justify-center" style={{ height: '300px' }}>
+            <h2 className="text-lg font-semibold text-slate-800 mb-4">
+              Module Wise User Report
+            </h2>
+            <div className="flex justify-center" style={{ height: "300px" }}>
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -109,7 +115,7 @@ const SettingDashboard = () => {
                 </PieChart>
               </ResponsiveContainer>
             </div>
-            
+
             {/* Legend */}
             <div className="px-3 pt-2 pb-3">
               <div className="flex flex-wrap justify-center gap-2">
@@ -119,7 +125,7 @@ const SettingDashboard = () => {
                     className="inline-flex items-center px-2.5 py-1.5 text-xs font-medium rounded border shadow-sm"
                     onClick={() => toggleVisibility(item.name)}
                   >
-                    <span 
+                    <span
                       className="w-2 h-2 rounded-full mr-2"
                       style={{ backgroundColor: item.color }}
                     />

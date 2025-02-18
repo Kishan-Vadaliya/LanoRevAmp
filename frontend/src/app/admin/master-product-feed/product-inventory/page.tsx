@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ProductInventory() {
-  return (
-    <div>
-      Product Inventory
-    </div>
-  )
+  return <div>Product Inventory</div>;
 }
 
-export default ProductInventory 
+export default ProductInventory;

@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ThemeConfiguration() {
-  return (
-    <div>
-      Theme Configuration
-    </div>
-  )
+  return <div>Theme Configuration</div>;
 }
 
-export default ThemeConfiguration 
+export default ThemeConfiguration;

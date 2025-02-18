@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ProductReadiness() {
-  return (
-    <div>
-      Product Readiness Configuration
-    </div>
-  )
+  return <div>Product Readiness Configuration</div>;
 }
 
-export default ProductReadiness 
+export default ProductReadiness;

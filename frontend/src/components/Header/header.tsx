@@ -56,13 +56,13 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
         </div>
 
         {/* Right section with user profile */}
-       
-          <div className="flex items-center space-x-3">
+
+        <div className="flex items-center space-x-3">
           <hr className="w-px h-6 bg-slate-200" />
           <div className="relative inline-flex" x-data="{ open: false }">
             <div className="relative inline-flex userProfileContainer">
               <button
-                className="inline-flex justify-center items-center group"
+                className="flex items-center justify-between w-full px-4 py-2 text-[#404040]"
                 aria-haspopup="true"
                 aria-expanded="true"
                 onClick={() => setIsOpen(!isOpen)}
@@ -71,15 +71,14 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
                   <img
                     src="https://lanoadmin.redefineapp.io/static/media/userAvatar.8b4ffbe6909512c99e68.jpg"
                     alt="user avatar"
-                    
                   />
                 </div>
                 <div className="flex items-center truncate">
-                  <span className="truncate ml-2 text-sm font-medium group-hover:text-gray-800">
-                    Dhrumisha&nbsp;Rakholiya
+                  <span className="truncate ml-2 mr-2 text-sm font-medium group-hover:text-gray-800">
+                    Kishan
                   </span>
                   <svg
-                    className={`w-3 h-3 flex-shrink-0 ml-1 fill-current text-gray-400 ${isOpen ? 'rotate-180' : ''}`}
+                    className={`w-3 h-3 flex-shrink-0 ml-1 fill-current text-gray-400 ${isOpen ? "rotate-180" : ""}`}
                     viewBox="0 0 12 12"
                   >
                     <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z"></path>
@@ -87,53 +86,49 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
                 </div>
               </button>
               {isOpen && (
-              <div
-                className="z-50 absolute top-8 right-0 min-w-44 bg-white border border-gray-200 py-1.5 rounded shadow-lg overflow-hidden mt-1 enter-done"
-                style={{}}
-              >
-                <div>
-                  <div className="pt-0.5 pb-2 px-3 mb-1 border-b border-neutral-200">
-                    <div className="font-medium text-gray-800">
-                      Dhrumisha
+                <div
+                  className="z-50 absolute top-8 right-0 min-w-44 bg-white border border-gray-200 py-1.5 rounded shadow-lg overflow-hidden mt-1 enter-done"
+                  style={{}}
+                >
+                  <div>
+                    <div className="pt-0.5 pb-2 px-3 mb-1 border-b border-neutral-200">
+                      <div className="font-medium text-gray-800">Kishan</div>
+                      <div className="text-xs text-gray-500 italic">Admin</div>
                     </div>
-                    <div className="text-xs text-gray-500 italic">
-                      Super Admin
-                    </div>
+                    <ul>
+                      <li>
+                        <a
+                          className="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
+                          href="/admin/settings/profile/"
+                        >
+                          Profile
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          className="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
+                          href="/admin/settings/user"
+                        >
+                          User
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          className="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
+                          href="/admin/settings/system/log"
+                        >
+                          System Logs
+                        </a>
+                      </li>
+                      <li className="mt-1 pt-1 border-t border-neutral-200">
+                        <span className="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3 cursor-pointer">
+                          Sign Out
+                        </span>
+                      </li>
+                    </ul>
                   </div>
-                  <ul>
-                    <li>
-                      <a
-                        className="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
-                        href="/admin/settings/profile/"
-                      >
-                        Profile
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
-                        href="/admin/settings/user"
-                      >
-                        User
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
-                        href="/admin/settings/system/log"
-                      >
-                        System Logs
-                      </a>
-                    </li>
-                    <li className="mt-1 pt-1 border-t border-neutral-200">
-                      <span className="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3 cursor-pointer">
-                        Sign Out
-                      </span>
-                    </li>
-                  </ul>
                 </div>
-              </div>
-          )}
+              )}
             </div>
           </div>
         </div>

@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ContentManagementDashboard() {
-  return (
-    <div>
-      Content Management Dashboard
-    </div>
-  )
+  return <div>Content Management Dashboard</div>;
 }
 
-export default ContentManagementDashboard 
+export default ContentManagementDashboard;

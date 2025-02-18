@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function StoreConfiguration() {
-  return (
-    <div>
-      Store Configuration
-    </div>
-  )
+  return <div>Store Configuration</div>;
 }
 
-export default StoreConfiguration 
+export default StoreConfiguration;

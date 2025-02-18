@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ProductAttributes() {
-  return (
-    <div>
-      Product Attributes Configuration
-    </div>
-  )
+  return <div>Product Attributes Configuration</div>;
 }
 
-export default ProductAttributes 
+export default ProductAttributes;

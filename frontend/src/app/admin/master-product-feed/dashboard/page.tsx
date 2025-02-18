@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function MasterProductFeedDashboard() {
-  return (
-    <div>
-      Master Product Feed Dashboard
-    </div>
-  )
+  return <div>Master Product Feed Dashboard</div>;
 }
 
-export default MasterProductFeedDashboard 
+export default MasterProductFeedDashboard;

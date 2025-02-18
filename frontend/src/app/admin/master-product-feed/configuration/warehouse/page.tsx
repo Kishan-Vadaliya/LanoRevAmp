@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Warehouse() {
-  return (
-    <div>
-      Warehouse Configuration
-    </div>
-  )
+  return <div>Warehouse Configuration</div>;
 }
 
-export default Warehouse 
+export default Warehouse;

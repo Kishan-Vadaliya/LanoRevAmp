@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function DealsRequestQuoteSection() {
-  return (
-    <div>
-      Deals Request Quote Section
-    </div>
-  )
+  return <div>Deals Request Quote Section</div>;
 }
 
-export default DealsRequestQuoteSection 
+export default DealsRequestQuoteSection;

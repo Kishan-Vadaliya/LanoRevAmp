@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function BrandMaster() {
-  return (
-    <div>
-      Brand Master Configuration
-    </div>
-  )
+  return <div>Brand Master Configuration</div>;
 }
 
-export default BrandMaster 
+export default BrandMaster;

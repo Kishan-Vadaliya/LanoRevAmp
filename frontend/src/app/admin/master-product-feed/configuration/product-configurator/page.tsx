@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ProductConfigurator() {
-  return (
-    <div>
-      Product Configurator
-    </div>
-  )
+  return <div>Product Configurator</div>;
 }
 
-export default ProductConfigurator 
+export default ProductConfigurator;

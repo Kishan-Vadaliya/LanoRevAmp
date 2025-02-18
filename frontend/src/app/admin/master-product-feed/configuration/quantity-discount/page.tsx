@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function QuantityDiscount() {
-  return (
-    <div>
-      Quantity Discount Configuration
-    </div>
-  )
+  return <div>Quantity Discount Configuration</div>;
 }
 
-export default QuantityDiscount 
+export default QuantityDiscount;

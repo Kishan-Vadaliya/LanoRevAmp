@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function OrderList() {
-  return (
-    <div>
-      Order List
-    </div>
-  )
+  return <div>Order List</div>;
 }
 
-export default OrderList 
+export default OrderList;

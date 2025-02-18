@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function EmailAutoResponder() {
-  return (
-    <div>
-      Email AutoResponder Configuration
-    </div>
-  )
+  return <div>Email AutoResponder Configuration</div>;
 }
 
-export default EmailAutoResponder 
+export default EmailAutoResponder;

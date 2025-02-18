@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function ProductDimension() {
-  return (
-    <div>
-      Product Dimension Configuration
-    </div>
-  )
+  return <div>Product Dimension Configuration</div>;
 }
 
-export default ProductDimension 
+export default ProductDimension;

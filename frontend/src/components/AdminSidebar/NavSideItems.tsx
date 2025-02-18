@@ -1,9 +1,6 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAngleDown,
-  faAngleUp,
-} from "@fortawesome/free-solid-svg-icons"; // Import necessary icons
+import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons"; // Import necessary icons
 
 import Link from "next/link";
 import { MenuItem } from "../../types/sidebar/NavItem/sidebar.types";
@@ -30,7 +27,7 @@ export const NavSideItems: React.FC<NavSideItemsProps> = ({
       {menuItems.map((item) => {
         const isExpanded = expandedItems.has(item.id);
         const isSelected = selectedItem === (item.href || "");
-        
+
         return (
           <li key={item.id}>
             <Link
@@ -45,9 +42,7 @@ export const NavSideItems: React.FC<NavSideItemsProps> = ({
               className={`
                 flex items-center justify-between px-3 py-2 text-sm rounded-md
                 transition-colors duration-150 ease-in-out
-                ${isSelected 
-                  ? "text-light-400" 
-                  : "text-black-300"}
+                ${isSelected ? "text-light-400" : "text-black-300"}
                 ${level > 0 ? "pl-10" : ""}
               `}
             >
