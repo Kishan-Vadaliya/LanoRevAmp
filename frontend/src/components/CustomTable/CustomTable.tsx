@@ -11,7 +11,7 @@ import {
 } from "@tanstack/react-table";
 
 interface CustomTableProps<T extends object> {
-  columns: ColumnDef<T, unknown>[];
+  columns: ColumnDef<T, any>[];
   data: T[];
 }
 
