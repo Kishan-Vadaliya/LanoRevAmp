@@ -4,6 +4,7 @@ import { createColumnHelper } from "@tanstack/react-table";
 import CustomTable from "../../components/CustomTable/CustomTable";
 import PageLayout from "../../components/common/PageLayout";
 import TableFilters from "../../components/common/TableFilters";
+import { createActionColumn, createStatusColumn } from "../../components/common/TableColumnHelpers";
 
 interface Role {
   name: string;
@@ -55,13 +56,12 @@ export default function Roles() {
 
   const columns = [
     columnHelper.accessor("name", {
+      id: 'name',
       header: "NAME",
       cell: (info) => (
         <div>
           <div className="font-medium">{info.getValue()}</div>
-          <div className="text-sm text-gray-500">
-            {info.row.original.description}
-          </div>
+          <div className="text-sm text-gray-500">{info.row.original.description}</div>
         </div>
       ),
     }),
@@ -77,27 +77,8 @@ export default function Roles() {
     columnHelper.accessor("updatedBy", {
       header: "UPDATED BY",
     }),
-    columnHelper.accessor("status", {
-      header: "STATUS",
-      cell: (info) => (
-        <span
-          className={`px-2 py-1 rounded-full text-xs ${
-            info.getValue() === "Active"
-              ? "bg-green-100 text-green-800"
-              : "bg-red-100 text-red-800"
-          }`}
-        >
-          {info.getValue()}
-        </span>
-      ),
-    }),
-    columnHelper.accessor("name", {
-      header: "",
-      id: "actions",
-      cell: () => (
-        <button className="text-gray-400 hover:text-gray-600">⋮</button>
-      ),
-    }),
+    createStatusColumn<Role>(),
+    createActionColumn<Role>(),
   ];
 
   return (

@@ -44,7 +44,6 @@ export default function Users() {
       status: "Active",
     },
 
-    // Add more sample data as needed
   ]);
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -69,7 +68,7 @@ export default function Users() {
       cell: (info) => (
         <div className="flex items-center">
           <img
-            src="/no-image.png"
+            src="https://randomuser.me/api/portraits"
             alt={info.getValue()}
             className="w-8 h-8 rounded-full mr-2"
           />

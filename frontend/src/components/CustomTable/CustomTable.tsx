@@ -8,10 +8,11 @@ import {
   useReactTable,
   ColumnDef,
   SortingState,
+  
 } from "@tanstack/react-table";
 
 interface CustomTableProps<T extends object> {
-  columns: ColumnDef<T, any>[];
+  columns: ColumnDef<T>[];
   data: T[];
 }
 
