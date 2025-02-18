@@ -28,19 +28,16 @@ const CustomTable = ({ columns, data }) => {
 
   return (
     <div className="col-span-full w-full bg-white shadow-lg rounded-md mb-8 relative overflow-hidden">
-      <div className="w-full">
-        {/* Header Controls */}
-        <div className="flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200">
-          <div className="flex items-center space-x-2">
-            <div className="relative">
-      
-            </div>
+      {/* Header Controls - Made responsive */}
+      <div className="w-full overflow-x-auto">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 border-b border-gray-200 min-w-max">
+          <div className="flex items-center space-x-2 mb-4 sm:mb-0">
             <div className="relative">
               <input
                 value={filterInput}
                 onChange={handleFilterChange}
                 placeholder="Search"
-                className="w-96 px-8 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full sm:w-96 px-8 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
               <span className="absolute left-2.5 top-2.5">
                 <svg
@@ -59,7 +56,7 @@ const CustomTable = ({ columns, data }) => {
               </span>
             </div>
           </div>
-          <div className="flex items-center space-x-2">
+          <div className="flex flex-wrap items-center gap-2">
             <button className="px-3 py-1.5 text-xs text-gray-600 font-medium border border-gray-300 rounded-md bg-white hover:bg-gray-50 flex items-center space-x-1">
               <span>Edit Columns</span>
             </button>
@@ -77,9 +74,11 @@ const CustomTable = ({ columns, data }) => {
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Table */}
-        <div className="w-full overflow-x-auto">
+      {/* Table with horizontal scroll */}
+      <div className="w-full overflow-x-auto">
+        <div className="min-w-max">
           <table className="w-full">
             <thead>
               {table.getHeaderGroups().map((headerGroup) => (
@@ -90,7 +89,7 @@ const CustomTable = ({ columns, data }) => {
                   {headerGroup.headers.map((header) => (
                     <th
                       key={header.id}
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 whitespace-nowrap"
                     >
                       <div className="flex items-center space-x-1">
                         {flexRender(
@@ -123,10 +122,12 @@ const CustomTable = ({ columns, data }) => {
             </tbody>
           </table>
         </div>
+      </div>
 
-        {/* Footer */}
-        <div className="flex items-center justify-between px-4 py-3 bg-white border-t border-gray-200">
-          <div className="flex items-center space-x-2">
+      {/* Footer - Made responsive */}
+      <div className="w-full overflow-x-auto">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 border-t border-gray-200 min-w-max">
+          <div className="flex items-center space-x-2 mb-4 sm:mb-0">
             <select
               value={table.getState().pagination.pageSize}
               onChange={(e) => table.setPageSize(Number(e.target.value))}

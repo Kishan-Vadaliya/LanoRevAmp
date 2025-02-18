@@ -30,7 +30,7 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
   }, []);
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="h-screen overflow-hidden">
       <Header onMenuClick={() => setSidebarOpen(!isSidebarOpen)} />
 
       <div className="flex pt-16">
@@ -53,7 +53,7 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
         {/* Main Content */}
         <div
           className={`
-          flex-1
+          grow
           transition-all duration-300 ease-in-out
           ${isSidebarOpen ? "lg:ml-0" : "lg:ml-0"}
         `}
