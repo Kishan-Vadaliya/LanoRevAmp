@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { createColumnHelper } from "@tanstack/react-table";
 import CustomTable from "../../components/CustomTable/CustomTable";
+import PageLayout from "../../components/common/PageLayout";
+import TableFilters from "../../components/common/TableFilters";
 
 interface Role {
   name: string;
@@ -36,6 +38,19 @@ export default function Roles() {
       status: "Active",
     },
   ]);
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [statusFilter, setStatusFilter] = useState("all");
+
+  const filteredData = data.filter((role) => {
+    const matchesSearch = 
+      role.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      role.description.toLowerCase().includes(searchQuery.toLowerCase());
+    
+    const matchesStatus = statusFilter === "all" || role.status === statusFilter;
+
+    return matchesSearch && matchesStatus;
+  });
 
   const columns = [
     columnHelper.accessor("name", {
@@ -83,21 +98,30 @@ export default function Roles() {
   ];
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-full">
-      <div className="sm:flex sm:items-center mb-6">
-        <div className="sm:flex-auto">
-          <h1 className="text-xl font-semibold text-gray-900">Roles</h1>
-        </div>
-        <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-          <button
-            type="button"
-            className="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-600"
-          >
-            Create Roles
-          </button>
-        </div>
-      </div>
-      <CustomTable<Role> columns={columns} data={data} />
-    </div>
+    <PageLayout 
+      title="Roles"
+      actionButton={{
+        text: "Create Roles",
+        onClick: () => {/* handle create */},
+      }}
+    >
+      <TableFilters
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+        searchPlaceholder="Search by role name..."
+        filters={{
+          status: {
+            value: statusFilter,
+            onChange: setStatusFilter,
+            label: "All Status",
+            options: [
+              { value: "Active", label: "Active" },
+              { value: "Inactive", label: "Inactive" },
+            ],
+          },
+        }}
+      />
+      <CustomTable<Role> columns={columns} data={filteredData} />
+    </PageLayout>
   );
 }

@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { createColumnHelper } from "@tanstack/react-table";
 import CustomTable from "../../components/CustomTable/CustomTable";
+import PageLayout from "../../components/common/PageLayout";
+import TableFilters from "../../components/common/TableFilters";
 
 interface User {
   name: string;
@@ -117,50 +119,39 @@ export default function Users() {
   ];
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-full">
-      <div className="sm:flex sm:items-center mb-6">
-        <div className="sm:flex-auto">
-          <h1 className="text-xl font-semibold text-gray-900">Users</h1>
-        </div>
-        <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-          <button
-            type="button"
-            className="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-600"
-          >
-            Invite Users
-          </button>
-        </div>
-      </div>
-
-      <div className="mb-4 flex flex-col sm:flex-row gap-4">
-        <input
-          type="text"
-          placeholder="Search by name or email..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="px-4 py-2 border rounded-md flex-grow"
-        />
-        <select
-          value={roleFilter}
-          onChange={(e) => setRoleFilter(e.target.value)}
-          className="px-4 py-2 border rounded-md"
-        >
-          <option value="all">All Roles</option>
-          <option value="Admin">Admin</option>
-          <option value="Super Admin">Super Admin</option>
-        </select>
-        <select
-          value={statusFilter}
-          onChange={(e) => setStatusFilter(e.target.value)}
-          className="px-4 py-2 border rounded-md"
-        >
-          <option value="all">All Status</option>
-          <option value="Active">Active</option>
-          <option value="Inactive">Inactive</option>
-        </select>
-      </div>
-
+    <PageLayout 
+      title="Users"
+      actionButton={{
+        text: "Invite Users",
+        onClick: () => {/* handle invite */},
+      }}
+    >
+      <TableFilters
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+        searchPlaceholder="Search by name or email..."
+        filters={{
+          role: {
+            value: roleFilter,
+            onChange: setRoleFilter,
+            label: "All Roles",
+            options: [
+              { value: "Admin", label: "Admin" },
+              { value: "Super Admin", label: "Super Admin" },
+            ],
+          },
+          status: {
+            value: statusFilter,
+            onChange: setStatusFilter,
+            label: "All Status",
+            options: [
+              { value: "Active", label: "Active" },
+              { value: "Inactive", label: "Inactive" },
+            ],
+          },
+        }}
+      />
       <CustomTable<User> columns={columns} data={filteredData} />
-    </div>
+    </PageLayout>
   );
 }
