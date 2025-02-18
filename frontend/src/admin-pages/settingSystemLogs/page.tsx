@@ -24,7 +24,40 @@ export default function SystemLogs() {
       date: "02/16/2025 08:49 AM",
       ipAddress: "152.58.34.11",
     },
-    // Add more data as needed
+    {
+      page: "UserWiseWidget",
+      moduleName: "Users",
+      event: "Updated",
+      createdBy: "Dhrumisha R",
+      date: "02/16/2025 08:49 AM",
+      ipAddress: "152.58.34.12",
+    },
+    {
+      page: "UserWiseWidget",
+      moduleName: "Users",
+      event: "Updated",
+      createdBy: "Vatsal P",
+      date: "02/16/2025 08:49 AM",
+      ipAddress: "152.58.34.13",
+    },
+    {
+      page: "UserWiseWidget",
+      moduleName: "Users",
+      event: "Updated",
+      createdBy: "Jatin P",
+      date: "02/16/2025 08:49 AM",
+      ipAddress: "152.58.34.14",
+    },
+    {
+      page: "UserWiseWidget",
+      moduleName: "Users",
+      event: "Updated",
+      createdBy: "Jay C",
+      date: "02/16/2025 08:49 AM",
+      ipAddress: "152.58.34.15",
+    },
+  
+    
   ]);
 
   const columns = [
