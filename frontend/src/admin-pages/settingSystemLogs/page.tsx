@@ -44,7 +44,7 @@ export default function SystemLogs() {
       page: "UserWiseWidget",
       moduleName: "Users",
       event: "Updated",
-      createdBy: "Jatin P",
+      createdBy: "Jatin D",
       date: "02/16/2025 08:49 AM",
       ipAddress: "152.58.34.14",
     },
@@ -82,7 +82,7 @@ export default function SystemLogs() {
   ];
 
   return (
-    <div>
+    <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-full">
       <CustomTable columns={columns} data={data} />
     </div>
   );
