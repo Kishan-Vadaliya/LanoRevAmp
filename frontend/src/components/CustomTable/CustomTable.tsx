@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import {
   flexRender,
   getCoreRowModel,
@@ -6,24 +6,37 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
+  ColumnDef,
+  SortingState,
 } from "@tanstack/react-table";
 
-const CustomTable = ({ columns, data }) => {
+interface CustomTableProps<T extends object> {
+  columns: ColumnDef<T, unknown>[];
+  data: T[];
+}
+
+const CustomTable = <T extends object>({ columns, data }: CustomTableProps<T>) => {
   const [filterInput, setFilterInput] = useState("");
+  const [sorting, setSorting] = useState<SortingState>([]);
 
   const table = useReactTable({
     data,
     columns,
+    state: {
+      globalFilter: filterInput,
+      sorting,
+    },
+    onSortingChange: setSorting,
+    onGlobalFilterChange: setFilterInput,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
   });
 
-  const handleFilterChange = (e) => {
-    const value = e.target.value || undefined;
-    table.setFilterValue("USER", value);
-    setFilterInput(value);
+  const handleFilterChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    table.setGlobalFilter(value);
   };
 
   return (
@@ -89,6 +102,7 @@ const CustomTable = ({ columns, data }) => {
                   {headerGroup.headers.map((header) => (
                     <th
                       key={header.id}
+                      onClick={header.column.getToggleSortingHandler()}
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 whitespace-nowrap"
                     >
                       <div className="flex items-center space-x-1">
@@ -96,7 +110,11 @@ const CustomTable = ({ columns, data }) => {
                           header.column.columnDef.header,
                           header.getContext(),
                         )}
-                        <span>↕</span>
+                        {header.column.getIsSorted() && (
+                          <span>
+                            {header.column.getIsSorted() === "asc" ? " ↑" : " ↓"}
+                          </span>
+                        )}
                       </div>
                     </th>
                   ))}

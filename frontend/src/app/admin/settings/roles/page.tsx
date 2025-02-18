@@ -1,7 +1,13 @@
+"use client";
 import React from "react";
+import RoleSettings from "@/admin-pages/settingRole/page";
 
-function settingsRoles() {
-  return <div>settingsRoles</div>;
+function SettingsRoles() {
+  return (
+    <div>
+      <RoleSettings />
+    </div>
+  );
 }
 
-export default settingsRoles;
+export default SettingsRoles;

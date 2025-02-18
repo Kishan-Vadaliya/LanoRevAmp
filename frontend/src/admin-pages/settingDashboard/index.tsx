@@ -3,63 +3,63 @@ import { PieChart, Pie, ResponsiveContainer, Tooltip, Cell } from "recharts";
 import { ModuleWiseUserData } from "../../data/chart";
 import { useState } from "react";
 
+interface ModuleData {
+  name: string;
+  users: number;
+  color: string;
+}
+
 const SettingDashboard = () => {
-  const [data, setData] = useState(ModuleWiseUserData);
-  const toggleVisibility = (name: string) => {
+  const [data, setData] = useState<ModuleData[]>(ModuleWiseUserData);
+
+  const toggleVisibility = (name: string): void => {
     setData((prevData) =>
       prevData.map((item) =>
         item.name === name
-          ? { ...item, users: item.users === 0 ? 38 : 0 } // Toggle users count
-          : item,
-      ),
+          ? { ...item, users: item.users === 0 ? 38 : 0 }
+          : item
+      )
     );
   };
 
+  const StatCard = ({ title, stats }: { 
+    title: string; 
+    stats: { label: string; value: number; }[] 
+  }) => (
+    <div className="flex flex-col col-span-full sm:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200">
+      <div className="px-5 pt-5">
+        <h2 className="text-lg font-semibold text-slate-800 mb-2">{title}</h2>
+        <div className="divide-y divide-slate-200">
+          {stats.map(({ label, value }) => (
+            <div key={label} className="flex justify-between py-3">
+              <div className="text-sm text-slate-600">{label}</div>
+              <div className="text-sm font-medium text-slate-800">{value}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-8 w-full">
-      {/* First row with Users and Roles cards */}
       <div className="grid grid-cols-12 gap-6 mb-6">
-        {/* Users Card */}
-        <div className="flex flex-col col-span-full sm:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200">
-          <div className="px-5 pt-5">
-            <h2 className="text-lg font-semibold text-slate-800 mb-2">Users</h2>
-            <div className="divide-y divide-slate-200">
-              <div className="flex justify-between py-3">
-                <div className="text-sm text-slate-600">ACTIVE</div>
-                <div className="text-sm font-medium text-slate-800">38</div>
-              </div>
-              <div className="flex justify-between py-3">
-                <div className="text-sm text-slate-600">INACTIVE</div>
-                <div className="text-sm font-medium text-slate-800">0</div>
-              </div>
-              <div className="flex justify-between py-3">
-                <div className="text-sm text-slate-600">TOTAL</div>
-                <div className="text-sm font-medium text-slate-800">38</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Roles Card */}
-        <div className="flex flex-col col-span-full sm:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200">
-          <div className="px-5 pt-5">
-            <h2 className="text-lg font-semibold text-slate-800 mb-2">Roles</h2>
-            <div className="divide-y divide-slate-200">
-              <div className="flex justify-between py-3">
-                <div className="text-sm text-slate-600">ACTIVE</div>
-                <div className="text-sm font-medium text-slate-800">4</div>
-              </div>
-              <div className="flex justify-between py-3">
-                <div className="text-sm text-slate-600">INACTIVE</div>
-                <div className="text-sm font-medium text-slate-800">0</div>
-              </div>
-              <div className="flex justify-between py-3">
-                <div className="text-sm text-slate-600">TOTAL</div>
-                <div className="text-sm font-medium text-slate-800">4</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <StatCard 
+          title="Users" 
+          stats={[
+            { label: "ACTIVE", value: 38 },
+            { label: "INACTIVE", value: 0 },
+            { label: "TOTAL", value: 38 }
+          ]} 
+        />
+        <StatCard 
+          title="Roles" 
+          stats={[
+            { label: "ACTIVE", value: 4 },
+            { label: "INACTIVE", value: 0 },
+            { label: "TOTAL", value: 4 }
+          ]} 
+        />
       </div>
 
       {/* Second row with Module tables and chart */}
@@ -140,4 +140,5 @@ const SettingDashboard = () => {
     </div>
   );
 };
+
 export default SettingDashboard;

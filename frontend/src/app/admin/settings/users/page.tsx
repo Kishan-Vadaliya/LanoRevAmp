@@ -1,7 +1,13 @@
+"use client";
 import React from "react";
+import Users from "@/admin-pages/settingUser/page";
 
-function settingsUsers() {
-  return <div>settingsUsers</div>;
+function SettingsUsers() {
+  return (
+    <div>
+      <Users />
+    </div>
+  );
 }
 
-export default settingsUsers;
+export default SettingsUsers;
