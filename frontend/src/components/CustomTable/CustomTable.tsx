@@ -22,7 +22,13 @@ const CustomTable = <T extends object>({
   const [filterInput, setFilterInput] = useState("");
   const [sorting, setSorting] = useState<SortingState>([]);
 
-  const {setGlobalFilter, getHeaderGroups,  getState, setPageSize, getRowModel } = useReactTable({
+  const {
+    setGlobalFilter,
+    getHeaderGroups,
+    getState,
+    setPageSize,
+    getRowModel,
+  } = useReactTable({
     data,
     columns,
     state: {
@@ -111,7 +117,7 @@ const CustomTable = <T extends object>({
                       <div className="flex items-center space-x-1">
                         {flexRender(
                           header.column.columnDef.header,
-                          header.getContext(),
+                          header.getContext()
                         )}
                         {header.column.getIsSorted() && (
                           <span>
@@ -139,7 +145,7 @@ const CustomTable = <T extends object>({
                     >
                       {flexRender(
                         cell.column.columnDef.cell,
-                        cell.getContext(),
+                        cell.getContext()
                       )}
                     </td>
                   ))}
