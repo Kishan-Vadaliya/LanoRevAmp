@@ -22,7 +22,7 @@ const CustomTable = <T extends object>({
   const [filterInput, setFilterInput] = useState("");
   const [sorting, setSorting] = useState<SortingState>([]);
 
-  const table = useReactTable({
+  const {setGlobalFilter, getHeaderGroups,  getState, setPageSize, getRowModel } = useReactTable({
     data,
     columns,
     state: {
@@ -39,7 +39,7 @@ const CustomTable = <T extends object>({
 
   const handleFilterChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    table.setGlobalFilter(value);
+    setGlobalFilter(value);
   };
 
   return (
@@ -97,7 +97,7 @@ const CustomTable = <T extends object>({
         <div className="min-w-max">
           <table className="w-full">
             <thead>
-              {table.getHeaderGroups().map((headerGroup) => (
+              {getHeaderGroups().map((headerGroup) => (
                 <tr
                   key={headerGroup.id}
                   className="bg-gray-50 border-b border-gray-200"
@@ -127,7 +127,7 @@ const CustomTable = <T extends object>({
               ))}
             </thead>
             <tbody className="bg-white">
-              {table.getRowModel().rows.map((row) => (
+              {getRowModel().rows.map((row) => (
                 <tr
                   key={row.id}
                   className="border-b border-gray-200 hover:bg-gray-50"
@@ -155,8 +155,8 @@ const CustomTable = <T extends object>({
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 border-t border-gray-200 min-w-max">
           <div className="flex items-center space-x-2 mb-4 sm:mb-0">
             <select
-              value={table.getState().pagination.pageSize}
-              onChange={(e) => table.setPageSize(Number(e.target.value))}
+              value={getState().pagination.pageSize}
+              onChange={(e) => setPageSize(Number(e.target.value))}
               className="px-2 py-1 text-sm text-gray-900 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
             >
               <option value={25}>25 Per Page</option>
